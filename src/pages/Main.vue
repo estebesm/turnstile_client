@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <h1>Estebes</h1>
+  <h1>Main page</h1>
 </template>
