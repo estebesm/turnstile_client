@@ -34,7 +34,7 @@
             <img width="30px" height="30px" src="../assets/images/avatar.svg" alt="">
           </div>
           <p class="text-13px text-name hidden 576px:block">Clayton Santos</p>
-          <div class="bg-white rounded-full h-50 w-50 hidden justify-center items-center justify-self-end 768px:flex">
+          <div class="bg-white rounded-full h-50 w-50 hidden justify-center items-center justify-self-end 768px:flex 1200px:hidden">
             <img width="30px" height="30px" src="../assets/images/loop.svg" alt="">
           </div>
         </div>
