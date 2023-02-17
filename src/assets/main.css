@@ -6,3 +6,53 @@
 }
 
 /* @import url("http://fonts.cdnfonts.com/css/gilroy-regular"); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap');
+:root{
+    --reglar-font-family:'Roboto', sans-serif;
+    --regular-font-style:normal;
+    --regular-font-weight:700;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--reglar-font-family);
+    font-style: var(--regular-font-style);
+    font-weight: var(--regular-font-weight);
+    background-color: #F7F8FA;
+}
+.container {
+    padding: 0 15px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media (min-width: 576px){
+    .container {
+      max-width: 540px;
+      margin: auto;
+      padding: 0;
+    }
+}
+  
+@media (min-width: 768px){
+    .container {
+      max-width: 720px;	
+    }
+}
+  
+@media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+}
+  
+@media (min-width: 1200px){
+    .container {
+      max-width: 1140px;
+    }
+}
+  
