@@ -7,10 +7,11 @@ module.exports = {
   ],
   theme: {
     screens:{
-      '576px':'576px',
-      '768px':'768px',
-      '992px':'992px',
-      '1200px':'1200px'
+      'sm':'576px',
+      'md':'768px',
+      'lg':'992px',
+      'xl':'1200px',
+      'xxl': '1400px'
     },
     extend: {
       height: {
