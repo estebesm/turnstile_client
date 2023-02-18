@@ -7,32 +7,33 @@ module.exports = {
   ],
   theme: {
     screens:{
-      '576px':'576px',
-      '768px':'768px',
-      '992px':'992px',
-      '1200px':'1200px'
+      'xs':'576px',
+      'sm':'768px',
+      'md':'992px',
+      'lg':'1200px'
+    },
+    colors:{
+      'gray-burger':'#C3CAD9',
+      'white-underline':'#EDEFF2',
+      'gray-title':'#4D5E80',
+      'gray-nav':'#7D8FB3',
+      'gray-name':'#6B7A99',
+      'gray-placeholder':'#ADB8CC',
+      'white':'#FFFFFF'
     },
     extend: {
       height: {
         '100': '100px',
         '50':'50px',
         '18':'18px',
-        '30px':'30px'
+        '20px':'20px'
       },
       width: {
         '100': '100px',
         '50':'50px',
         '18':'18px',
         '60%':'60%',
-        '30px':'30px'
-      },
-      colors:{
-        'burger':'#C3CAD9',
-        'underline':'#EDEFF2',
-        'title':'#4D5E80',
-        'nav':'#7D8FB3',
-        'name':'#6B7A99',
-        'input':'#ADB8CC'
+        '20px':'20px'
       },
       fontSize:{
         '13px':'13px',
