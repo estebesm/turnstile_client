@@ -1,13 +1,10 @@
 <template>
   <header class="dark container text-primary">
     <ul class="font-bold">
-      <li class="text-primary">primary</li>
-      <li class="text-primary-light">primary light</li>
-      <li class="text-success">success</li>
-      <li class="text-success-light">success light</li>
-      <li class="text-error">error</li>
-      <li class="text-error-light">error light</li>
-      <li class="text-secondary">secondary</li>
+      <li class="text-primary bg-primary-light p-4">primary</li>
+      <li class="text-success bg-success-light p-4">success</li>
+      <li class="text-error bg-error-200 p-4">error</li>
+      <li class="text-secondary bg-secondary-light p-4">secondary</li>
     </ul>
     <button
       @click="toggleTheme()"

@@ -38,6 +38,7 @@ module.exports = {
       icon: "#C3CAD9",
       secondary: {
         DEFAULT: "rgb(var(--color-secondary))",
+        light: "rgba(var(--color-secondary), .2)",
       },
       main: "rgb(var(--color-main))",
       side: "rgb(var(--color-side))",

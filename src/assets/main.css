@@ -25,12 +25,12 @@
     }
 
     :root[data-mode="dark"] {
-        --color-primary: 247 147 34;
-        --color-secondary: 33 33 33;
-        --color-success: 0 200 81;
-        --color-error: 254 78 78;
-        --color-main: 0, 0, 0;
-        --color-side: 255, 255, 25;
+        --color-primary: 247, 147, 34;
+        --color-secondary: 244, 244, 244;
+        --color-success: 0, 200, 81;
+        --color-error: 254, 78, 78;
+        --color-main: 26, 32, 44;
+        --color-side: 54, 65, 83;
     }
 }
 
