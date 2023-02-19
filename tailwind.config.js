@@ -1,48 +1,64 @@
 /* eslint-env node */
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  darkMode: ["class", '[data-mode="dark"]'],
   theme: {
-    screens:{
-      'sm':'576px',
-      'md':'768px',
-      'lg':'992px',
-      'xl':'1200px',
-      'xxl': '1400px'
+    fontFamily: {
+      gilroy: ["Gilroy", "Sans-serif"],
+    },
+    fontSize: {
+      "2xs": ["10px", "12px"],
+      xs: ["12px", "15px"],
+      sm: ["14px", "16px"],
+      base: ["16px", "20px"],
+      lg: ["18px", "22px"],
+      xl: ["20px", "24px"],
+      "2xl": ["24px", "28px"],
+    },
+    colors: {
+      primary: {
+        DEFAULT: "rgb(var(--color-primary))",
+        light: "rgba(var(--color-primary), .2)",
+      },
+      success: {
+        DEFAULT: "rgb(var(--color-success))",
+        light: "rgba(var(--color-success), .2)",
+      },
+      error: {
+        DEFAULT: "rgb(var(--color-error))",
+        light: "rgba(var(--color-error), .2)",
+        100: "rgba(var(--color-error), .1)",
+        200: "rgba(var(--color-error), .2)",
+      },
+      icon: "#C3CAD9",
+      secondary: {
+        DEFAULT: "rgb(var(--color-secondary))",
+      },
+      main: "rgb(var(--color-main))",
+      side: "rgb(var(--color-side))",
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
+        "3xl": "6rem",
+      },
     },
     extend: {
-      height: {
-        '100': '100px',
-        '50':'50px',
-        '18':'18px',
-        '30px':'30px'
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
-      width: {
-        '100': '100px',
-        '50':'50px',
-        '18':'18px',
-        '60%':'60%',
-        '30px':'30px'
+      screens: {
+        "3xl": "1920px",
       },
-      colors:{
-        'burger':'#C3CAD9',
-        'underline':'#EDEFF2',
-        'title':'#4D5E80',
-        'nav':'#7D8FB3',
-        'name':'#6B7A99',
-        'input':'#ADB8CC'
-      },
-      fontSize:{
-        '13px':'13px',
-        '12px':'12px'
-      },
-      borderRadius:{
-        '30px':'30px'
-      }
-    }
+    },
   },
   plugins: [],
 };
