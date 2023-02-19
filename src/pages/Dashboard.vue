@@ -13,17 +13,19 @@
       @click="toggleTheme()"
       class="bg-side py-1 px-2 rounded block mx-auto"
     >
-      <span class="text-secondary text-xl">Переключить тему</span>
+      <span class="text-blue-500 dark:text-red-500 text-xl"
+        >Переключить тему</span
+      >
     </button>
   </header>
 </template>
 
 <script setup>
 function toggleTheme() {
-  if (document.documentElement.getAttribute("theme") === "dark") {
-    document.documentElement.setAttribute("theme", null);
+  if (document.documentElement.getAttribute("data-mode") === "dark") {
+    document.documentElement.setAttribute("data-mode", null);
   } else {
-    document.documentElement.setAttribute("theme", "dark");
+    document.documentElement.setAttribute("data-mode", "dark");
   }
 }
 </script>

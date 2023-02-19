@@ -24,7 +24,7 @@
         --color-side: 255, 255, 255;
     }
 
-    :root[theme="dark"] {
+    :root[data-mode="dark"] {
         --color-primary: 247 147 34;
         --color-secondary: 33 33 33;
         --color-success: 0 200 81;
