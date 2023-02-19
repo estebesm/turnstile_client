@@ -1,6 +1,7 @@
 /* eslint-env node */
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
@@ -19,6 +20,7 @@ module.exports = {
       "2xl": ["24px", "28px"],
     },
     colors: {
+      ...colors,
       primary: {
         DEFAULT: "rgb(var(--color-primary))",
         light: "rgba(var(--color-primary), .2)",
@@ -60,5 +62,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
