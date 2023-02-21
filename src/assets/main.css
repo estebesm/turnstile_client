@@ -6,3 +6,35 @@
 }
 
 /* @import url("http://fonts.cdnfonts.com/css/gilroy-regular"); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@layer base {
+    :root {
+        --color-primary: 255, 102, 51;
+        --color-secondary: 107, 122, 153;
+        --color-success: 41, 204, 57;
+        --color-error: 230, 46, 46;
+        --color-main: 247, 248, 250;
+        --color-side: 255, 255, 255;
+    }
+
+    :root[data-mode="dark"] {
+        --color-primary: 247, 147, 34;
+        --color-secondary: 244, 244, 244;
+        --color-success: 0, 200, 81;
+        --color-error: 254, 78, 78;
+        --color-main: 26, 32, 44;
+        --color-side: 54, 65, 83;
+    }
+}
+
+body {
+    background-color: rgb(var(--color-main));
+}
+
