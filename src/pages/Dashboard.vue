@@ -14,6 +14,12 @@
         >Переключить тему</span
       >
     </button>
+    <button
+      @click="openDoor()"
+      class="px-4 py-2 rounded-lg bg-lime-600 my-5 mx-auto block"
+    >
+      <span class="text-lg text-white font-bold">ОТКРЫТЬ ДВЕРЬ</span>
+    </button>
   </header>
 </template>
 
@@ -24,5 +30,15 @@ function toggleTheme() {
   } else {
     document.documentElement.setAttribute("data-mode", "dark");
   }
+}
+function openDoor() {
+  fetch("https://2ad7-46-251-205-52.eu.ngrok.io/")
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 </script>
