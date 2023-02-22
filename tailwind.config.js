@@ -70,6 +70,9 @@ module.exports = {
       screens: {
         "3xl": "1920px",
       },
+      backgroundImage: {
+        circle: "url('../assets/images/circle.svg')",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

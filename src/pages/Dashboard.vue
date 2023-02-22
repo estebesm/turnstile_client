@@ -64,13 +64,75 @@
         <NavIcon />
       </div>
       <div
-        class="flex py-[30px] w-full gap-x-[20px] gap-y-[20px] flex-wrap xl:border-border xl:border-x-2 xl:px-[20px] xl:w-[834px] 2xl:px-[30px] 2xl:w-[1004px] 3xl:w-[1304px]"
+        class="flex py-[30px] w-full gap-x-[20px] gap-y-[20px] flex-wrap xl:border-border xl:border-x-2 xl:px-[20px] xl:w-[798px] 2xl:px-[30px] 2xl:w-[1004px] 3xl:w-[1304px]"
       >
         <Charts :one="first" />
         <Charts :two="second" />
         <Charts :three="third" />
         <Charts :four="fourth" />
         <Charts :five="fifth" />
+      </div>
+      <div class="py-[30px] pl-[20px] flex-[1] hidden xl:block">
+        <div class="flex justify-between items-center">
+          <img
+            class="w-[16px] h-[16px]"
+            src="../assets/images/avatarId.svg"
+            alt=""
+          />
+          <img
+            class="w-[16px] h-[4px]"
+            src="../assets/images/points.svg"
+            alt=""
+          />
+        </div>
+        <div class="flex justify-center items-center mt-[7px]">
+          <div
+            class="relative bg-circle bg-contain w-[130px] h-[130px] flex justify-center items-center"
+          >
+            <img
+              class="w-[110px] h-[110px] rounded-full"
+              src="https://www.kino-teatr.ru/news/14941/137469.jpg"
+              alt=""
+            />
+            <div
+              class="absolute h-[40px] w-[40px] flex justify-center items-center bg-[#FF6633] rounded-full right-[-20px]"
+            >
+              <img src="../assets/images/plus.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <h3 class="text-center mt-[40px] mb-[30px] text-base text-secondary">
+          Clayton Santos
+        </h3>
+        <div class="flex justify-between items-center mb-[10px]">
+          <p class="text-secondary text-xs">Accounts and Cards</p>
+          <img src="../assets/images/points.svg" alt="" />
+        </div>
+        <!-- <div class="flex justify-between items-center">
+          <img
+            class="w-[65px] h-[40px]"
+            src="../assets/images/Card.svg"
+            alt=""
+          />
+          <div>
+            <p class="text-secondary text-sx text-center">Master Card</p>
+            <p class="text-secondary text-sx text-center">4 560 $</p>
+          </div>
+          <div
+            class="rounded-full bg-white w-[40px] h-[40px] flex items-center justify-center"
+          >
+            <img
+              class="w-[15px] h-[15px]"
+              src="../assets/images/arrow.svg"
+              alt=""
+            />
+          </div>
+        </div> -->
+        <div class="flex flex-col gap-y-[15px] w-full">
+          <Card :cardOne="cardOne" />
+          <Card :cardTwo="cardTwo" />
+          <Card :cardThree="cardThree" />
+        </div>
       </div>
     </div>
   </section>
@@ -79,6 +141,7 @@
 <script setup>
 import NavItem from "../components/NavItem.vue";
 import NavIcon from "../components/NavIcon.vue";
+import Card from "../components/Card.vue";
 import Input from "../UI/Input.vue";
 import Charts from "../UI/Charts.vue";
 const first = "akas";
@@ -86,6 +149,9 @@ const second = "estebes";
 const third = "dastan";
 const fourth = "adilet";
 const fifth = "talgat";
+const cardOne = "cardOne";
+const cardTwo = "cardTwo";
+const cardThree = "cardThree";
 function toggleTheme() {
   if (document.documentElement.getAttribute("data-mode") === "dark") {
     document.documentElement.setAttribute("data-mode", null);

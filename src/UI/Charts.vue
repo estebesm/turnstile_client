@@ -1,68 +1,68 @@
 <template>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-full xl:w-[250px] 2xl:w-[300px] 3xl:w-[400px]"
+    class="w-full h-fit bg-white rounded-[10px] md:w-full xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
     v-if="one === 'akas'"
   >
     <div
-      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full bg-green-100 py-[22px] border-b-2 border-border"
+      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full py-[22px] border-b-2 border-border"
     >
       <p v-for="el in content" :key="el.id" class="text-xs text-secondary">
         {{ el.name }}
       </p>
     </div>
-    <div class="w-full bg-pink-400 h-[285px] rounded-b-[10px]">akas</div>
+    <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[250px] 2xl:w-[300px] 3xl:w-[400px]"
+    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
     v-else-if="two === 'estebes'"
   >
     <div
-      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full bg-green-100 py-[22px] border-b-2 border-border"
+      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full py-[22px] border-b-2 border-border"
     >
       <p v-for="el in content" :key="el.id" class="text-xs text-secondary">
         {{ el.name }}
       </p>
     </div>
-    <div class="w-full bg-pink-400 h-[285px] rounded-b-[10px]">estebes</div>
+    <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[250px] 2xl:w-[300px] 3xl:w-[400px]"
+    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
     v-else-if="three === 'dastan'"
   >
     <div
-      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full bg-green-100 py-[22px] border-b-2 border-border"
+      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full py-[22px] border-b-2 border-border"
     >
       <p v-for="el in content" :key="el.id" class="text-xs text-secondary">
         {{ el.name }}
       </p>
     </div>
-    <div class="w-full bg-pink-400 h-[285px] rounded-b-[10px]">dastan</div>
+    <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
     class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[calc(60%-10px)]"
     v-else-if="four === 'adilet'"
   >
     <div
-      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full bg-green-100 py-[22px] border-b-2 border-border"
+      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full py-[22px] border-b-2 border-border"
     >
       <p v-for="el in content" :key="el.id" class="text-xs text-secondary">
         {{ el.name }}
       </p>
     </div>
-    <div class="w-full bg-pink-400 h-[285px] rounded-b-[10px]">dastan</div>
+    <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
     class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[calc(40%-10px)]"
     v-else-if="five === 'talgat'"
   >
     <div
-      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full bg-green-100 py-[22px] border-b-2 border-border"
+      class="flex rounded-t-[10px] justify-evenly gap-x-[10px] w-full py-[22px] border-b-2 border-border"
     >
       <p v-for="el in content" :key="el.id" class="text-xs text-secondary">
         {{ el.name }}
       </p>
     </div>
-    <div class="w-full bg-pink-400 h-[285px] rounded-b-[10px]">dastan</div>
+    <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
 </template>
 
