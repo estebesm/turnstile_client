@@ -59,14 +59,18 @@
     </div>
   </header>
   <section class="w-[100%] h-[calc(100vh-100px)]" id="panel">
-    <div class="container h-full w-full flex">
+    <div class="container w-full flex">
       <div class="hidden flex-col gap-y-[20px] pr-[23px] pt-[30px] xl:flex">
         <NavIcon />
       </div>
-      <div class="flex py-[30px] w-full gap-x-[10px] gap-y-[20px] flex-wrap">
-        <Charts />
-        <Charts />
-        <Charts />
+      <div
+        class="flex py-[30px] w-full gap-x-[20px] gap-y-[20px] flex-wrap xl:border-border xl:border-x-2 xl:px-[20px] xl:w-[834px] 2xl:px-[30px] 2xl:w-[1004px] 3xl:w-[1304px]"
+      >
+        <Charts :one="first" />
+        <Charts :two="second" />
+        <Charts :three="third" />
+        <Charts :four="fourth" />
+        <Charts :five="fifth" />
       </div>
     </div>
   </section>
@@ -77,7 +81,11 @@ import NavItem from "../components/NavItem.vue";
 import NavIcon from "../components/NavIcon.vue";
 import Input from "../UI/Input.vue";
 import Charts from "../UI/Charts.vue";
-
+const first = "akas";
+const second = "estebes";
+const third = "dastan";
+const fourth = "adilet";
+const fifth = "talgat";
 function toggleTheme() {
   if (document.documentElement.getAttribute("data-mode") === "dark") {
     document.documentElement.setAttribute("data-mode", null);
