@@ -159,4 +159,16 @@ function toggleTheme() {
     document.documentElement.setAttribute("data-mode", "dark");
   }
 }
+function openDoor() {
+  fetch("https://2ad7-46-251-205-52.eu.ngrok.io/open/", {
+    method: "POST",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 </script>
