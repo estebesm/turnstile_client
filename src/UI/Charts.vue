@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-full xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
+    class="w-full h-fit bg-primary rounded-[10px] md:w-full xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
     v-if="one === 'akas'"
   >
     <div
@@ -13,7 +13,7 @@
     <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
+    class="w-full h-fit bg-primary rounded-[10px] md:w-[calc(50%-10px)] xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
     v-else-if="two === 'estebes'"
   >
     <div
@@ -26,7 +26,7 @@
     <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
+    class="w-full h-fit bg-primary rounded-[10px] md:w-[calc(50%-10px)] xl:w-[238px] 2xl:w-[300px] 3xl:w-[400px]"
     v-else-if="three === 'dastan'"
   >
     <div
@@ -39,7 +39,7 @@
     <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[calc(60%-10px)]"
+    class="w-full h-fit bg-primary rounded-[10px] md:w-[calc(50%-10px)] xl:w-[calc(60%-10px)]"
     v-else-if="four === 'adilet'"
   >
     <div
@@ -52,7 +52,7 @@
     <div class="w-full h-[285px] rounded-b-[10px]"></div>
   </div>
   <div
-    class="w-full h-fit bg-white rounded-[10px] md:w-[calc(50%-10px)] xl:w-[calc(40%-10px)]"
+    class="w-full h-fit bg-primary rounded-[10px] md:w-[calc(50%-10px)] xl:w-[calc(40%-10px)]"
     v-else-if="five === 'talgat'"
   >
     <div

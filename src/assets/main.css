@@ -26,7 +26,7 @@
     }
 
     :root[data-mode="dark"] {
-        --color-primary: 255, 192, 203;
+        --color-primary: 219, 192, 203;
         --color-secondary: 224, 224, 224;
         --color-success: 0, 200, 81;
         --color-error: 254, 78, 78;

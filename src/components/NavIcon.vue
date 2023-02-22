@@ -2,7 +2,7 @@
   <div
     v-for="el in src"
     :key="el.id"
-    class="rounded-[50%] h-[50px] w-[50px] bg-white flex justify-center items-center"
+    class="rounded-[50%] h-[50px] w-[50px] bg-primary flex justify-center items-center"
   >
     <img class="w-[20px] h-[20px]" :src="el.name" alt="" />
   </div>

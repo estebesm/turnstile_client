@@ -6,7 +6,7 @@
       <p class="text-secondary text-sx text-center">4 560 $</p>
     </div>
     <div
-      class="rounded-full bg-white w-[40px] h-[40px] flex items-center justify-center"
+      class="rounded-full bg-primary w-[40px] h-[40px] flex items-center justify-center"
     >
       <img class="w-[15px] h-[15px]" src="../assets/images/arrow.svg" alt="" />
     </div>
@@ -18,7 +18,7 @@
       <p class="text-secondary text-sx text-center">1 120 $</p>
     </div>
     <div
-      class="rounded-full bg-white w-[40px] h-[40px] flex items-center justify-center"
+      class="rounded-full bg-primary w-[40px] h-[40px] flex items-center justify-center"
     >
       <img class="w-[15px] h-[15px]" src="../assets/images/arrow.svg" alt="" />
     </div>
@@ -33,7 +33,7 @@
       <p class="text-secondary text-sx text-center">345 $</p>
     </div>
     <div
-      class="rounded-full bg-white w-[40px] h-[40px] flex items-center justify-center"
+      class="rounded-full bg-primary w-[40px] h-[40px] flex items-center justify-center"
     >
       <img class="w-[15px] h-[15px]" src="../assets/images/arrow.svg" alt="" />
     </div>
