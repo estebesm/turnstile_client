@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     fontFamily: {
       gilroy: ["Gilroy", "Sans-serif"],
+      DEFAULT: ["Roboto", "sans-serif"],
     },
     fontSize: {
       "2xs": ["10px", "12px"],
@@ -18,6 +19,13 @@ module.exports = {
       lg: ["18px", "22px"],
       xl: ["20px", "24px"],
       "2xl": ["24px", "28px"],
+    },
+    fontWeight: {
+      DEFAULT: "700",
+      black: "900",
+    },
+    fontStyle: {
+      DEFAULT: "normal",
     },
     colors: {
       ...colors,
@@ -42,6 +50,7 @@ module.exports = {
       },
       main: "rgb(var(--color-main))",
       side: "rgb(var(--color-side))",
+      border: "#EDEFF2",
     },
     container: {
       center: true,
@@ -60,6 +69,9 @@ module.exports = {
       },
       screens: {
         "3xl": "1920px",
+      },
+      backgroundImage: {
+        circle: "url('../assets/images/circle.svg')",
       },
     },
   },
