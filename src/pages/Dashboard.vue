@@ -16,9 +16,9 @@
     </button>
     <button
       @click="openDoor()"
-      class="px-4 py-2 rounded-lg bg-lime-600 my-5 mx-auto block"
+      class="px-8 py-4 rounded-lg bg-lime-600 my-5 mx-auto block"
     >
-      <span class="text-lg text-white font-bold">ОТКРЫТЬ ДВЕРЬ</span>
+      <span class="text-[48px] text-white font-bold">ОТКРЫТЬ ДВЕРЬ</span>
     </button>
   </header>
 </template>
@@ -32,7 +32,9 @@ function toggleTheme() {
   }
 }
 function openDoor() {
-  fetch("https://2ad7-46-251-205-52.eu.ngrok.io/")
+  fetch("https://2ad7-46-251-205-52.eu.ngrok.io/open/", {
+    method: "POST",
+  })
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
