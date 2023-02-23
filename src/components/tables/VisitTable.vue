@@ -1,6 +1,6 @@
 <template>
-  <div class="overflow-x-auto pb-3 text-sm md:text-md">
-    <table class="w-full min-w-[400px] border-separate border-spacing-y-1">
+  <div class="overflow-x-auto pb-1 text-sm md:text-md">
+    <table class="w-full min-w-24 border-separate border-spacing-y-1">
       <tr class="bg-side">
         <th class="p-4 rounded-l">№</th>
         <th class="whitespace-nowrap p-4">Карта</th>
