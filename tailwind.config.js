@@ -51,6 +51,7 @@ module.exports = {
       main: "rgb(var(--color-main))",
       side: "rgb(var(--color-side))",
       border: "#EDEFF2",
+      btn: "rgb(var(--color-btn))",
     },
     container: {
       center: true,
