@@ -21,7 +21,7 @@
         --color-success: 41, 204, 57;
         --color-error: 230, 46, 46;
         --color-main: 247, 248, 250;
-        --color-side: 192, 202, 217;
+        --color-side: 241, 244, 250;
         
     }
 
@@ -31,13 +31,12 @@
         --color-success: 0, 200, 81;
         --color-error: 254, 78, 78;
         --color-main: 26, 32, 44;
-        --color-side: 255, 255, 255;
+        --color-side: 54, 65, 83;
     }
 }
 
 body {
     background-color: rgb(var(--color-main));
-    font-style: normal;
-    font-weight: 700;
+    color: rgb(var(--color-secondary));
 }
 
