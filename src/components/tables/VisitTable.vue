@@ -57,5 +57,95 @@ const visits = [
     time: "14:00",
     note: "-",
   },
+  {
+    cardId: 13234,
+    type: "Абонемент",
+    keyNumber: "12",
+    time: "13:00",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Разовое",
+    keyNumber: "7",
+    time: "13:30",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Разовое",
+    keyNumber: "22",
+    time: "14:00",
+    note: "Lorem ipsum dolor sit amet",
+  },
+  {
+    cardId: 13234,
+    type: "Абонемент",
+    keyNumber: "27",
+    time: "14:00",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Абонемент",
+    keyNumber: "12",
+    time: "13:00",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Разовое",
+    keyNumber: "7",
+    time: "13:30",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Разовое",
+    keyNumber: "22",
+    time: "14:00",
+    note: "Lorem ipsum dolor sit amet",
+  },
+  {
+    cardId: 13234,
+    type: "Абонемент",
+    keyNumber: "27",
+    time: "14:00",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Абонемент",
+    keyNumber: "12",
+    time: "13:00",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Разовое",
+    keyNumber: "7",
+    time: "13:30",
+    note: "-",
+  },
+  {
+    cardId: 13234,
+    type: "Разовое",
+    keyNumber: "22",
+    time: "14:00",
+    note: "Lorem ipsum dolor sit amet",
+  },
+  {
+    cardId: 13234,
+    type: "Абонемент",
+    keyNumber: "27",
+    time: "14:00",
+    note: "-",
+  },
 ];
 </script>
+
+<style scoped>
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--color-primary));
+}
+</style>
