@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center gap-4 py-3 px-4">
-    <button class="h-6 w-6" @click="toggleTheme()">
+    <button class="h-7 w-7" @click="toggleTheme()">
       <img v-if="toggleActive" src="@/assets/icons/moon.svg" alt="moon" />
       <img v-else src="@/assets/icons/sun.svg" alt="sun" />
     </button>
