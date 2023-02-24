@@ -7,6 +7,7 @@ import router from "@/router";
 import notifications from "@kyvg/vue3-notification";
 
 import "@/assets/main.css";
+import "@/assets/animations.css";
 
 const app = createApp(App)
   .use(createPinia())
