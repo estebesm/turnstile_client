@@ -4,16 +4,16 @@
       <img v-if="toggleActive" src="@/assets/icons/moon.svg" alt="moon" />
       <img v-else src="@/assets/icons/sun.svg" alt="sun" />
     </button>
-    <!-- <div
+    <div
       @click="toggleTheme()"
-      class="w-10 h-4 cursor-pointer flex items-center bg-primary rounded-full duration-200 ease-in-out"
+      class="hidden w-10 h-4 cursor-pointer sm:flex items-center bg-primary rounded-full duration-200 ease-in-out"
       :class="{ 'bg-gray-300': !toggleActive }"
     >
       <div
         class="bg-white w-5 h-5 rounded-full shadow-md transform duration-200 ease-in-out"
         :class="{ 'translate-x-5': toggleActive }"
       ></div>
-    </div> -->
+    </div>
   </div>
 </template>
 
