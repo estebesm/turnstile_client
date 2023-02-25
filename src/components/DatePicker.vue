@@ -1,6 +1,6 @@
 <template>
   <button class="py-3 px-4 rounded bg-primary flex items-center gap-1.5">
-    <span class="text-btn text-sm">23 февраля 2023</span>
+    <span class="text-btn text-sm">{{ today }}</span>
     <svg
       width="20px"
       height="20px"
@@ -21,5 +21,7 @@
 </template>
 
 <script setup>
+import dayjs from "dayjs";
+const today = dayjs().format("DD MMMM YYYY");
 const selected = false;
 </script>
