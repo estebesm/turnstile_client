@@ -10,9 +10,9 @@
         <th class="p-4 rounded-r">Примечание</th>
       </tr>
       <tr
-        class="bg-side align-top"
         v-for="(item, index) in visits"
         :key="item.cardId"
+        class="bg-side align-top"
       >
         <td class="text-center p-4 rounded-l">{{ index + 1 }}</td>
         <td class="text-center p-4">{{ item.cardId }}</td>

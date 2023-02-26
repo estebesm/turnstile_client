@@ -5,9 +5,9 @@
       <img v-else src="@/assets/icons/sun.svg" alt="sun" />
     </button>
     <div
-      @click="toggleTheme()"
       class="hidden w-10 h-4 cursor-pointer sm:flex items-center bg-primary rounded-full duration-200 ease-in-out"
       :class="{ 'bg-gray-300': !toggleActive }"
+      @click="toggleTheme()"
     >
       <div
         class="bg-white w-5 h-5 rounded-full shadow-md transform duration-200 ease-in-out"
