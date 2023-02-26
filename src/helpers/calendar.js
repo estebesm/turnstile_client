@@ -1,10 +1,13 @@
 import dayjs from "dayjs";
 import updateLocale from "dayjs/plugin/updateLocale";
+import "dayjs/locale/ru";
 
 dayjs.extend(updateLocale);
 const weekArray = dayjs.updateLocale("en", {
   weekdaysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
 });
+const getToday = (format = "DD MMMM YYYY") =>
+  dayjs().locale("ru").format(format);
 
 function getCalendarDays(month = dayjs().month(), year = dayjs().year()) {
   const firstDateOfMonth = dayjs().year(year).month(month).startOf("month");
@@ -43,4 +46,5 @@ export const calendar = {
   getCalendarDays,
   weekArray,
   currentDate: dayjs(),
+  getToday,
 };
