@@ -1,15 +1,17 @@
 <template>
-  <Header />
-  <section class="container">
-    <div class="pt-10 pb-1 flex items-center gap-4">
-      <DatePicker />
-      <button class="hover:text-primary transition font-[400]">
-        Скачать excel
-      </button>
-    </div>
-    <VisitTable />
-  </section>
-  <FooterNavbar />
+  <div>
+    <Header />
+    <section class="container">
+      <div class="pt-10 pb-1 flex items-center gap-4">
+        <DatePicker />
+        <button class="hover:text-primary transition font-[400]">
+          Скачать excel
+        </button>
+      </div>
+      <VisitTable />
+    </section>
+    <FooterNavbar />
+  </div>
 </template>
 
 <script setup>

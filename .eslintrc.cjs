@@ -1,20 +1,15 @@
-/* eslint-env node */
-require("@rushstack/eslint-patch/modern-module-resolution");
+//require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
   root: true,
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/eslint-config-prettier",
-    "./.eslintrc-auto-import.json",
-  ],
+  plugins: ["vue"],
+  extends: ["plugin:vue/recommended", "@vue/eslint-config-prettier"],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
   },
   rules: {
     "vue/multi-word-component-names": "off",
-    "no-unused-vars": "off",
+    "vue/require-default-prop": "off",
     "prettier/prettier": [
       "error",
       {
