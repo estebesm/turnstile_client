@@ -3,8 +3,9 @@
     class="flex flex-col justify-center gap-y-2 w-[calc(100vw-32px)] bg-side rounded-md border-border p-5 sm:w-[320px] md:w-[355px] md:gap-y-3 lg:w-[426px] lg:gap-y-3.5 lg:p-7 2xl:w-[490px] 2xl:gap-y-5"
   >
     <div class="w-full h-7.5 flex justify-between items-center">
-      <p class="lg:text-xl 2xl:text-2xl capitalize">
-        {{ today }}
+      <p class="lg:text-xl 2xl:text-2xl">
+        {{ weekArray.months[state.currentDate.month()] }}
+        {{ state.currentDate.date() }}, {{ state.currentDate.year() }}
       </p>
       <div class="flex gap-x-4">
         <Button class="p-2 rounded-full" @click="showPrevMonth">
@@ -69,7 +70,6 @@ import Button from "@/ui/Button.vue";
 import { reactive } from "vue";
 import { calendar } from "@/helpers/calendar";
 const weekArray = calendar.weekArray;
-const today = calendar.getToday("MMMM DD, YYYY");
 const state = reactive({
   currentDate: calendar.currentDate,
 });

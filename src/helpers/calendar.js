@@ -5,6 +5,20 @@ import "dayjs/locale/ru";
 dayjs.extend(updateLocale);
 const weekArray = dayjs.updateLocale("en", {
   weekdaysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+  months: [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+  ],
 });
 const getToday = (format = "DD MMMM YYYY") =>
   dayjs().locale("ru").format(format);
