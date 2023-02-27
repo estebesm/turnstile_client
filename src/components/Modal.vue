@@ -30,7 +30,7 @@ const props = defineProps({
 watch(
   () => props.modalActive,
   (oldValue) => {
-    document.body.style.overflow = oldValue ? "hidden" : "visible";
+    document.body.style.overflowY = oldValue ? "hidden" : "scroll";
     if (!isMobile())
       document.body.style.paddingRight = oldValue
         ? "var(--width-scrollbar)"
