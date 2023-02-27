@@ -6,25 +6,18 @@
     >
       <ul class="container grid grid-cols-4 h-full">
         <li>
-          <Button class="w-full h-full flex items-center justify-center">
+          <Button
+            class="w-full h-full flex items-center justify-center"
+            @click="() => router.push('/dashboard')"
+          >
             <svg
-              class="w-7 h-7 stroke-secondary"
-              viewBox="0 0 24 24"
+              class="h-7 w-7 fill-secondary"
+              :class="{
+                'fill-[rgb(var(--color-primary))]': route.name === 'dashboard',
+              }"
+              viewBox="0 0 28 28"
               fill="none"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
             >
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </Button>
-        </li>
-        <li>
-          <Button class="w-full h-full flex items-center justify-center">
-            <svg class="h-7 w-7 fill-secondary" viewBox="0 0 28 28" fill="none">
               <g stroke-linecap="round" stroke-linejoin="round"></g>
               <g>
                 <path
@@ -37,6 +30,27 @@
                   d="M19 11C19 9.89543 19.8954 9 21 9H24C25.1046 9 26 9.89543 26 11V25C26 26.1046 25.1046 27 24 27H21C19.8954 27 19 26.1046 19 25V11ZM24 11.4C24 11.1791 23.8209 11 23.6 11H21.4C21.1791 11 21 11.1791 21 11.4V24.6C21 24.8209 21.1791 25 21.4 25H23.6C23.8209 25 24 24.8209 24 24.6V11.4Z"
                 ></path>
               </g>
+            </svg>
+          </Button>
+        </li>
+        <li>
+          <Button
+            class="w-full h-full flex items-center justify-center"
+            @click="() => router.push('/memberships')"
+          >
+            <svg
+              class="w-7 h-7 stroke-secondary"
+              :class="{ 'stroke-primary': route.name === 'memberships' }"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </Button>
         </li>
@@ -84,5 +98,8 @@
 </template>
 
 <script setup>
+import { useRoute, useRouter } from "vue-router";
 import Button from "@/ui/Button.vue";
+const router = useRouter();
+const route = useRoute();
 </script>
