@@ -1,12 +1,14 @@
 <template>
-  <section class="container">
-    <div class="pt-10 pb-1 flex items-center gap-4">
+  <section class="container py-6 lg:py-8">
+    <div class="pb-1 flex items-center gap-4">
       <DatePicker />
+    </div>
+    <VisitTable />
+    <div class="flex justify-end">
       <button class="hover:text-primary transition font-[400]">
         Скачать excel
       </button>
     </div>
-    <VisitTable />
   </section>
 </template>
 

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="h-12"></div>
     <nav
       class="h-12 bg-main lg:hidden fixed bottom-0 flex items-center w-full border-t dark:border-gray-600 shadow-[0px_-1px_3px_rgba(82,82,91,0.3)]"
     >
