@@ -4,9 +4,9 @@
   >
     <div class="w-full h-7.5 flex justify-between items-center">
       <p class="lg:text-xl 2xl:text-2xl">
-        {{ weekArray.months[state.selectedDateOnHeaderOfCalendar.month()] }}
-        {{ state.selectedDateOnHeaderOfCalendar.date() }},
-        {{ state.selectedDateOnHeaderOfCalendar.year() }}
+        {{ weekArray.months[state.selectedDate.month()] }}
+        {{ state.selectedDate.date() }},
+        {{ state.selectedDate.year() }}
       </p>
       <div class="flex gap-x-4">
         <Button class="p-2 rounded-full" @click="showPrevMonth">
@@ -49,7 +49,7 @@
           :class="{
             'rounded-full bg-red-500':
               el.date.toDate().toDateString() ===
-              state.selectedDate.toDate().toDateString() && !el.today,
+                state.selectedDate.toDate().toDateString() && !el.today,
             'rounded-full bg-primary': el.today,
           }"
           @click="showSelectedDate(el.date)"
@@ -72,16 +72,16 @@
     <div class="flex justify-around">
       <Button
         :disabled="state.checkDate"
-        @click="saveSelectedDate"
         class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 text-btn text-sm"
         :class="{ 'opacity-30': state.checkDate }"
+        @click="saveSelectedDate"
         >Сохранить
       </Button>
       <Button
         :disabled="!state.checkDate"
-        @click="cancelSelectedDate"
         class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 text-btn text-sm"
         :class="{ 'opacity-30': !state.checkDate }"
+        @click="cancelSelectedDate"
         >Отмена
       </Button>
     </div>
@@ -92,14 +92,15 @@
 import Button from "@/ui/Button.vue";
 import { reactive } from "vue";
 import { calendar } from "@/helpers/calendar";
+import { useCalendarStore } from "@/stores/calendar";
+import "dayjs/locale/ru";
+const calendarStore = useCalendarStore();
 const weekArray = calendar.weekArray;
 const state = reactive({
   currentDate: calendar.currentDate,
   selectedDate: calendar.currentDate,
   checkDate: false,
-  selectedDateOnHeaderOfCalendar: calendar.currentDate,
 });
-
 function showPrevMonth() {
   state.currentDate = state.currentDate.month(state.currentDate.month() - 1);
   state.selectedDate = state.selectedDate
@@ -120,10 +121,14 @@ function showSelectedDate(el) {
 }
 function saveSelectedDate() {
   state.checkDate = true;
-  state.selectedDateOnHeaderOfCalendar = state.selectedDate;
+  calendarStore.pickerButtonDate = state.selectedDate
+    .locale("ru")
+    .format("DD MMMM YYYY");
 }
 function cancelSelectedDate() {
   state.checkDate = false;
-  state.selectedDateOnHeaderOfCalendar = calendar.currentDate;
+  calendarStore.pickerButtonDate = calendar.currentDate
+    .locale("ru")
+    .format("DD MMMM YYYY");
 }
 </script>

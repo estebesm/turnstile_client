@@ -4,7 +4,7 @@
       class="py-3 px-4 rounded bg-primary flex items-center gap-1.5"
       @click="toggleModal"
     >
-      <span class="text-btn text-sm">{{ today }}</span>
+      <span class="text-btn text-sm">{{ calendarStore.pickerButtonDate }}</span>
       <svg
         width="20px"
         height="20px"
@@ -30,11 +30,13 @@
 
 <script setup>
 import { ref } from "vue";
-import { calendar } from "@/helpers/calendar";
+// import { calendar } from "@/helpers/calendar";
 import Calendar from "@/components/Calendar.vue";
 import Modal from "@/components/Modal.vue";
 import Button from "@/ui/Button.vue";
-const today = calendar.getToday();
+import { useCalendarStore } from "../stores/calendar";
+const calendarStore = useCalendarStore();
+// const today = calendar.getToday();
 const modalActive = ref(null);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
