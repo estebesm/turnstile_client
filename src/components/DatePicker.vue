@@ -23,7 +23,7 @@
       </svg>
     </Button>
     <Modal :modal-active="modalActive" @close-modal="toggleModal">
-      <Calendar />
+      <Calendar :akas="toggleModal" />
     </Modal>
   </div>
 </template>
