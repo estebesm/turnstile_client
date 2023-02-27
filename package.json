@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.8.0",
-    "@vueuse/head": "^1.0.23",
+    "@vueuse/core": "^9.13.0",
+    "@vueuse/head": "^1.1.9",
     "pinia": "^2.0.28",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"

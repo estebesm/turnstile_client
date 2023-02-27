@@ -1,6 +1,10 @@
 <template>
-  <div>
+  <Layout>
     <notifications position="bottom right" />
     <RouterView />
-  </div>
+  </Layout>
 </template>
+
+<script setup>
+import Layout from "@/components/Layout.vue";
+</script>

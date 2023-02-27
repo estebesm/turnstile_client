@@ -17,6 +17,11 @@ const router = createRouter({
       //   middleware: "auth",
       // },
     },
+    {
+      path: "/memberships",
+      name: "memberships",
+      component: () => import("@/pages/Memberships.vue"),
+    },
     // {
     //   path: "/stream/:id?",
     //   name: "stream",
