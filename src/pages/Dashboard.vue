@@ -5,7 +5,7 @@
     </div>
     <VisitTable />
     <div class="flex justify-end">
-      <button class="hover:text-primary transition font-[400]">
+      <button class="mt-2 hover:text-primary transition font-[400]">
         Скачать excel
       </button>
     </div>
