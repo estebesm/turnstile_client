@@ -42,7 +42,7 @@
           <Button
             class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 text-btn text-sm"
             @click="selectDate(state.pickedDate)"
-            >Сохранить
+            >Открыть
           </Button>
         </div>
       </div>

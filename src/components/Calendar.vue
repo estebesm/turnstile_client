@@ -82,15 +82,14 @@
 
 <script setup>
 import Button from "@/ui/Button.vue";
-import { reactive, defineEmits } from "vue";
+import { reactive } from "vue";
 import { calendar } from "@/helpers/calendar";
 import "dayjs/locale/ru";
 
 const weekArray = calendar.weekArray;
 const state = reactive({
-  currentDate: calendar.currentDate,
+  currentDate: props.selectedDate,
 });
-const emits = defineEmits(["select-date", "close-modal"]);
 const props = defineProps({
   selectedDate: {
     type: Object,
@@ -109,20 +108,10 @@ function isPicked(date) {
     date.year() === props.pickedDate.year()
   );
 }
-function isSelected(date) {
-  return (
-    date.date() === props.selectedDate.date() &&
-    date.month() === props.selectedDate.month() &&
-    date.year() === props.selectedDate.year()
-  );
-}
 function showPrevMonth() {
   state.currentDate = state.currentDate.month(state.currentDate.month() - 1);
 }
 function showNextMonth() {
   state.currentDate = state.currentDate.month(state.currentDate.month() + 1);
 }
-// const selectDate = () => {
-//   emits("select-date", state.pickedDate);
-// };
 </script>
