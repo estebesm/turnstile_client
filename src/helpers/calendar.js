@@ -3,6 +3,7 @@ import updateLocale from "dayjs/plugin/updateLocale";
 import "dayjs/locale/ru";
 
 dayjs.extend(updateLocale);
+
 const weekArray = dayjs.updateLocale("en", {
   weekdaysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
   months: [
@@ -19,6 +20,20 @@ const weekArray = dayjs.updateLocale("en", {
     "Ноябрь",
     "Декабрь",
   ],
+  monthsRod: [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
+  ],
 });
 const getToday = (format = "DD MMMM YYYY") =>
   dayjs().locale("ru").format(format);
@@ -31,12 +46,16 @@ function getCalendarDays(month = dayjs().month(), year = dayjs().year()) {
     arrayOfDate.push({
       date: firstDateOfMonth.day(i),
       currentMonth: false,
+      prevMonth: true,
+      nextMonth: false,
     });
   }
   for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++) {
     arrayOfDate.push({
       date: firstDateOfMonth.date(i),
       currentMonth: true,
+      prevMonth: false,
+      nextMonth: false,
       today:
         firstDateOfMonth.date(i).toDate().toDateString() ===
         dayjs().toDate().toDateString(),
@@ -51,6 +70,8 @@ function getCalendarDays(month = dayjs().month(), year = dayjs().year()) {
     arrayOfDate.push({
       date: lastDateOfMonth.date(i),
       currentMonth: false,
+      prevMonth: false,
+      nextMonth: true,
     });
   }
   return arrayOfDate;

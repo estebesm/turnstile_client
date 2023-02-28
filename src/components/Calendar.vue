@@ -4,9 +4,8 @@
   >
     <div class="w-full h-7.5 flex justify-between items-center">
       <p class="lg:text-xl 2xl:text-2xl">
-        {{ weekArray.months[state.selectedDate.month()] }}
-        {{ state.selectedDate.date() }},
-        {{ state.selectedDate.year() }}
+        {{ weekArray.months[state.currentDate.month()] }}
+        {{ state.currentDate.year() }}
       </p>
       <div class="flex gap-x-4">
         <Button class="p-2 rounded-full" @click="showPrevMonth">
@@ -47,88 +46,83 @@
         <Button
           class="w-full h-full sm:px-2 sm:py-1 aspect-square"
           :class="{
-            'rounded-full bg-red-500':
-              el.date.toDate().toDateString() ===
-                state.selectedDate.toDate().toDateString() && !el.today,
-            'rounded-full bg-primary': el.today,
+            'bg-success rounded-full': isPicked(el.date),
+            'border border-secondary rounded-full': el.today,
           }"
-          @click="showSelectedDate(el.date)"
+          @click="props.pickDate(el.date)"
         >
-          <span v-if="el.today" class="text-btn cursor-pointer">{{
+          <span v-if="el.today && !isPicked(el.date)" class="text-primary">{{
             el.date.date()
           }}</span>
           <span
-            v-else-if="!el.currentMonth"
-            class="text-gray-400 cursor-pointer"
+            v-else-if="isPicked(el.date)"
+            :class="{ 'text-btn': isPicked(el.date) }"
+            >{{ el.date.date() }}</span
+          >
+          <span
+            v-else-if="!el.currentMonth && el.prevMonth"
+            class="text-gray-400"
           >
             {{ el.date.date() }}
           </span>
-          <span v-else-if="el.currentMonth && !el.today" class="cursor-pointer"
-            >{{ el.date.date() }}
+          <span
+            v-else-if="!el.currentMonth && el.nextMonth"
+            class="text-gray-400"
+          >
+            {{ el.date.date() }}
           </span>
+          <span v-else :class="{ 'text-btn': isPicked(el.date) }">{{
+            el.date.date()
+          }}</span>
         </Button>
       </div>
-    </div>
-    <div class="flex justify-around">
-      <Button
-        :disabled="state.checkDate"
-        class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 text-btn text-sm"
-        :class="{ 'opacity-30': state.checkDate }"
-        @click="saveSelectedDate"
-        >Сохранить
-      </Button>
-      <Button
-        :disabled="!state.checkDate"
-        class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 text-btn text-sm"
-        :class="{ 'opacity-30': !state.checkDate }"
-        @click="cancelSelectedDate"
-        >Отмена
-      </Button>
     </div>
   </div>
 </template>
 
 <script setup>
 import Button from "@/ui/Button.vue";
-import { reactive } from "vue";
+import { reactive, defineEmits } from "vue";
 import { calendar } from "@/helpers/calendar";
-import { useCalendarStore } from "@/stores/calendar";
 import "dayjs/locale/ru";
-const calendarStore = useCalendarStore();
+
 const weekArray = calendar.weekArray;
 const state = reactive({
   currentDate: calendar.currentDate,
-  selectedDate: calendar.currentDate,
-  checkDate: false,
 });
+const emits = defineEmits(["select-date", "close-modal"]);
+const props = defineProps({
+  selectedDate: {
+    type: Object,
+  },
+  pickedDate: {
+    type: Object,
+  },
+  pickDate: {
+    type: Function,
+  },
+});
+function isPicked(date) {
+  return (
+    date.date() === props.pickedDate.date() &&
+    date.month() === props.pickedDate.month() &&
+    date.year() === props.pickedDate.year()
+  );
+}
+function isSelected(date) {
+  return (
+    date.date() === props.selectedDate.date() &&
+    date.month() === props.selectedDate.month() &&
+    date.year() === props.selectedDate.year()
+  );
+}
 function showPrevMonth() {
   state.currentDate = state.currentDate.month(state.currentDate.month() - 1);
-  state.selectedDate = state.selectedDate
-    .month(state.selectedDate.month() - 1)
-    .startOf("month");
-  state.checkDate = false;
 }
 function showNextMonth() {
   state.currentDate = state.currentDate.month(state.currentDate.month() + 1);
-  state.selectedDate = state.selectedDate
-    .month(state.selectedDate.month() + 1)
-    .startOf("month");
-  state.checkDate = false;
 }
-function showSelectedDate(el) {
-  state.selectedDate = el;
-  state.checkDate = false;
-}
-function saveSelectedDate() {
-  state.checkDate = true;
-  calendarStore.pickerButtonDate = state.selectedDate
-    .locale("ru")
-    .format("DD MMMM YYYY");
-}
-function cancelSelectedDate() {
-  state.checkDate = false;
-  calendarStore.pickerButtonDate = calendar.currentDate
-    .locale("ru")
-    .format("DD MMMM YYYY");
-}
+// const selectDate = () => {
+//   emits("select-date", state.pickedDate);
+// };
 </script>

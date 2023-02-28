@@ -3,7 +3,9 @@ import { calendar } from "@/helpers/calendar";
 
 export const useCalendarStore = defineStore({
   id: "calendar",
+  estebes: "hi",
   state: () => ({
-    pickerButtonDate: calendar.getToday(),
+    currentDate: calendar.currentDate,
+    selectedDate: calendar.currentDate,
   }),
 });
