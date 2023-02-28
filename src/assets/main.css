@@ -53,6 +53,13 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
 ::-webkit-scrollbar {
     width: var(--width-scrollbar);
     height: var(--width-scrollbar);
