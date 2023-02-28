@@ -4,7 +4,11 @@
       class="py-3 px-4 rounded bg-primary flex items-center gap-1.5"
       @click="toggleModal"
     >
-      <span class="text-btn text-sm">{{ calendarStore.pickerButtonDate }}</span>
+      <span class="text-btn text-sm">{{
+        `${state.selectedDate.date()} ${
+          weekArray.monthsRod[state.selectedDate.month()]
+        } ${state.selectedDate.year()}`
+      }}</span>
       <svg
         width="20px"
         height="20px"
@@ -23,20 +27,56 @@
       </svg>
     </Button>
     <Modal :modal-active="modalActive" @close-modal="toggleModal">
-      <Calendar :akas="toggleModal" />
+      <div class="bg-side pb-6 rounded">
+        <Calendar
+          :selected-date="state.selectedDate"
+          :picked-date="state.pickedDate"
+          :pick-date="pickDate"
+        />
+        <div class="flex justify-end gap-x-4 px-8">
+          <Button
+            class="py-3 px-4 rounded flex items-center gap-1.5 text-sm"
+            @click="cancelPick"
+            >Отмена
+          </Button>
+          <Button
+            class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 text-btn text-sm"
+            @click="selectDate(state.pickedDate)"
+            >Сохранить
+          </Button>
+        </div>
+      </div>
     </Modal>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-// import { calendar } from "@/helpers/calendar";
+import { ref, reactive } from "vue";
+import { calendar } from "@/helpers/calendar";
 import Calendar from "@/components/Calendar.vue";
 import Modal from "@/components/Modal.vue";
 import Button from "@/ui/Button.vue";
-import { useCalendarStore } from "../stores/calendar";
-const calendarStore = useCalendarStore();
-// const today = calendar.getToday();
+
+const weekArray = calendar.weekArray;
+
+const state = reactive({
+  pickedDate: calendar.currentDate,
+  selectedDate: calendar.currentDate,
+});
+
+const selectDate = (date) => {
+  state.selectedDate = date;
+  modalActive.value = false;
+};
+const pickDate = (date) => {
+  state.pickedDate = date;
+};
+const cancelPick = () => {
+  state.selectedDate = calendar.currentDate;
+  state.pickedDate = calendar.currentDate;
+  modalActive.value = false;
+};
+
 const modalActive = ref(null);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
