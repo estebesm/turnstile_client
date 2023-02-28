@@ -2,14 +2,16 @@
   <div class="container py-6 lg:py-8">
     <div class="pb-2 flex items-center flex-wrap gap-x-4 gap-y-1.5">
       <DatePicker />
-      <Button class="bg-primary py-2 px-4 rounded" @click="toggleModal">
-        <span class="text-btn font-[400]">Добавить абонемент</span>
+      <Button class="bg-success py-2.5 px-4 rounded" @click="toggleModal">
+        <span class="text-btn">Добавить абонемент</span>
       </Button>
       <Modal :modal-active="modalActive" @close-modal="toggleModal">
-        <div
-          class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px]"
-        >
-          <MembershipForm />
+        <div class="rounded-lg overflow-hidden">
+          <div
+            class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px] max-h-[calc(100vh-80px)] overflow-y-auto my-1"
+          >
+            <MembershipForm />
+          </div>
         </div>
       </Modal>
     </div>
@@ -38,3 +40,20 @@ const toggleModal = () => {
   modalActive.value = !modalActive.value;
 };
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px rgb(var(--color-side));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #90a4ae;
+  border-radius: 3px;
+}
+</style>

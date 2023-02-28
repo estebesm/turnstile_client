@@ -38,6 +38,11 @@ const weekArray = dayjs.updateLocale("en", {
 const getToday = (format = "DD MMMM YYYY") =>
   dayjs().locale("ru").format(format);
 
+const isToday = (date) =>
+  date.date() === dayjs().date() &&
+  date.month() === dayjs().month() &&
+  date.year() === dayjs().year();
+
 function getCalendarDays(month = dayjs().month(), year = dayjs().year()) {
   const firstDateOfMonth = dayjs().year(year).month(month).startOf("month");
   const lastDateOfMonth = dayjs().year(year).month(month).endOf("month");
@@ -81,5 +86,6 @@ export const calendar = {
   getCalendarDays,
   weekArray,
   currentDate: dayjs(),
+  isToday,
   getToday,
 };
