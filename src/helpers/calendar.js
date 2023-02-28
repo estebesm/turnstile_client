@@ -20,6 +20,20 @@ const weekArray = dayjs.updateLocale("en", {
     "Ноябрь",
     "Декабрь",
   ],
+  monthsRod: [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
+  ],
 });
 const getToday = (format = "DD MMMM YYYY") =>
   dayjs().locale("ru").format(format);
