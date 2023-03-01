@@ -17,8 +17,12 @@
       placeholder="+996 500 123 456"
     />
     <div class="flex justify-end gap-x-4 mt-2">
-      <button type="button">Отмена</button>
-      <Button type="button" class="bg-primary rounded py-2 px-4 text-btn">
+      <Button type="button" @click="props.closeModal">Отмена</Button>
+      <Button
+        type="button"
+        class="bg-primary rounded py-2 px-4 text-btn"
+        @click="props.closeModal"
+      >
         Добавить
       </Button>
     </div>
@@ -29,6 +33,12 @@
 import Button from "@/ui/Button.vue";
 import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
+
+const props = defineProps({
+  closeModal: {
+    type: Function,
+  },
+});
 
 const options = [
   { label: "Option 1", value: "1" },
