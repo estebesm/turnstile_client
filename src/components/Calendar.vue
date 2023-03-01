@@ -89,6 +89,7 @@ import "dayjs/locale/ru";
 const weekArray = calendar.weekArray;
 const state = reactive({
   currentDate: props.selectedDate,
+  pickedDate: props.pickDate,
 });
 const props = defineProps({
   selectedDate: {
