@@ -3,13 +3,13 @@
     <div class="relative">
       <label v-show="label" class="block text-sm mb-2">{{ label }}</label>
       <Button
-        class="flex justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-main"
+        class="flex relative z-0 justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-main"
         type="button"
         v-bind="$attrs"
         @click="isOptionsExpanded = !isOptionsExpanded"
         @blur="isOptionsExpanded = false"
       >
-        <span>{{ selectedOption }}</span>
+        <span>{{ props.value }}</span>
         <svg
           fill="none"
           viewBox="0 0 24 24"
@@ -35,10 +35,10 @@
       >
         <ul
           v-show="isOptionsExpanded"
-          class="absolute left-0 right-0 mb-4 bg-main divide-y rounded-b shadow-lg overflow-hidden border-t border-t-side"
+          class="absolute z-[1] left-0 right-0 mb-4 bg-main divide-y rounded-b shadow-lg border-t border-t-side"
         >
           <li
-            v-for="(option, index) in options"
+            v-for="(option, index) in props.options"
             :key="index"
             class="px-3 py-2 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-black/30 cursor-pointer font-[400]"
             @mousedown.prevent="setOption(option)"
@@ -59,20 +59,21 @@ const props = defineProps({
   label: {
     type: String,
   },
+  options: {
+    type: Array,
+  },
+  value: {
+    type: String,
+  },
+  setValue: {
+    type: Function,
+  },
 });
 
 const isOptionsExpanded = ref(false);
-const selectedOption = ref("Взрослый");
-const options = ref([
-  "Взрослый",
-  "Взрослый тр.",
-  "Детский",
-  "Детский тр.",
-  "Индивидуальный",
-]);
 
 function setOption(option) {
-  selectedOption.value = option;
+  props.setValue(option);
   isOptionsExpanded.value = false;
 }
 </script>
