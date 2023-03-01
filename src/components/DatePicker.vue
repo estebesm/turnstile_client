@@ -79,6 +79,7 @@ const cancelPick = () => {
 
 const modalActive = ref(null);
 const toggleModal = () => {
+  state.pickedDate = state.selectedDate;
   modalActive.value = !modalActive.value;
 };
 </script>
