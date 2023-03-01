@@ -7,7 +7,21 @@
       placeholder="12345"
       class="w-full"
     />
-    <Select label="Тип абонемента" class="w-full" />
+    <Select
+      :options="types"
+      :value="state.type"
+      :set-value="(option) => (state.type = option)"
+      label="Тип абонемента"
+      class="w-full"
+    />
+    <Select
+      v-show="[types[1], types[3], types[4]].includes(state.type)"
+      :options="employees"
+      :value="state.employee"
+      :set-value="(option) => (state.employee = option)"
+      label="Тренер"
+      class="w-full"
+    />
     <Textfield label="Имя" class="block w-full" placeholder="Иван" />
     <Textfield label="Фамилия" class="block w-full" placeholder="Иванов" />
     <Textfield
@@ -33,16 +47,30 @@
 import Button from "@/ui/Button.vue";
 import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
+import { reactive } from "vue";
+
+const employees = [
+  "Эстебес Мукамбетов",
+  "Акас Салвар",
+  "Иван Иванов",
+  "Петр Петров",
+];
+const types = [
+  "Взрослый",
+  "Взрослый тр.",
+  "Детский",
+  "Детский тр.",
+  "Индивидуальный",
+];
+
+const state = reactive({
+  type: types[0],
+  employee: employees[0],
+});
 
 const props = defineProps({
   closeModal: {
     type: Function,
   },
 });
-
-const options = [
-  { label: "Option 1", value: "1" },
-  { label: "Option 2", value: "2" },
-  { label: "Option 3", value: "3" },
-];
 </script>
