@@ -22,6 +22,11 @@ const router = createRouter({
       name: "memberships",
       component: () => import("@/pages/Memberships.vue"),
     },
+    {
+      path: "/information",
+      name: "information",
+      component: () => import("@/pages/Information.vue"),
+    },
     // {
     //   path: "/stream/:id?",
     //   name: "stream",

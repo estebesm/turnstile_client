@@ -27,7 +27,8 @@
           <li>
             <button
               class="transition rounded-sm px-2"
-              :class="{ 'text-primary': route.name === 'info' }"
+              :class="{ 'text-primary': route.name === 'information' }"
+              @click="() => router.push('/information')"
             >
               <span>Информация</span>
             </button>
