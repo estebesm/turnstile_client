@@ -41,7 +41,7 @@ body {
     background-color: rgb(var(--color-main));
     color: rgb(var(--color-secondary));
     font-weight: 500;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     overflow-y: scroll;
 }
 
