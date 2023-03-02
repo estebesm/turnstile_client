@@ -1,7 +1,8 @@
 <template>
   <div>
     <Button
-      class="py-3 px-4 rounded bg-primary flex items-center gap-1.5"
+      class="py-3 px-4 rounded bg-primary flex items-center gap-1.5 whitespace-nowrap"
+      v-bind="$attrs"
       @click="toggleModal"
     >
       <span class="text-btn text-sm">{{

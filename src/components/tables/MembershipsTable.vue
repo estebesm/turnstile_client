@@ -10,7 +10,7 @@
         <th class="whitespace-nowrap p-4 rounded-r">Дата окончания</th>
       </tr>
       <tr
-        v-for="(item, index) in memberships"
+        v-for="(item, index) in props.memberships"
         :key="item.cardId"
         class="bg-side align-top"
       >
@@ -28,15 +28,11 @@
 </template>
 
 <script setup>
-const memberships = [
-  {
-    cardId: 13234,
-    type: "Абонемент",
-    owner: "Мукамбетов Эстебес",
-    start: "27-02-2023",
-    end: "27-03-2023",
+const props = defineProps({
+  memberships: {
+    type: Array,
   },
-];
+});
 </script>
 
 <style scoped>
