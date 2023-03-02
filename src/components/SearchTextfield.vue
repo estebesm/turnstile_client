@@ -59,20 +59,24 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  searchFn: {
+  setResults: {
     type: Function,
     required: true,
+  },
+  searchFn: {
+    type: Function,
+    default: () => {},
   },
 });
 
 const searchTerm = ref("");
 const showDropdown = ref(false);
-const searchFn = debounce(props.searchFn, 700);
+const setResults = debounce(props.setResults, 700);
 
 function handleInput(e) {
   searchTerm.value = e.target.value;
   showDropdown.value = true;
-  searchFn(searchTerm.value);
+  setResults(searchTerm.value);
 }
 
 function closeDropdown() {
@@ -81,11 +85,11 @@ function closeDropdown() {
 
 function handleButtonClick() {
   closeDropdown();
-  searchFn(searchTerm.value);
+  props.searchFn(searchTerm.value);
 }
 function handleOptionClick(option) {
   searchTerm.value = option;
   closeDropdown();
-  searchFn(searchTerm.value);
+  props.searchFn(searchTerm.value);
 }
 </script>
