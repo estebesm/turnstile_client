@@ -73,6 +73,7 @@ module.exports = {
       },
       backgroundImage: {
         circle: "url('../assets/images/circle.svg')",
+        loginBackground: "url('@/assets/icons/loginBackground.svg')",
       },
     },
   },
