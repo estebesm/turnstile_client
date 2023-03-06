@@ -21,16 +21,23 @@
 function toggleTheme() {
   if (this.toggleActive) {
     this.toggleActive = false;
-    document.documentElement.setAttribute("data-mode", true);
+    document.documentElement.setAttribute("data-mode", "light");
   } else {
     this.toggleActive = true;
     document.documentElement.setAttribute("data-mode", "dark");
   }
 }
+
+function isDark() {
+  return !!(
+    document.documentElement.attributes["data-mode"] &&
+    document.documentElement.attributes["data-mode"].value === "dark"
+  );
+}
 export default {
   data() {
     return {
-      toggleActive: false,
+      toggleActive: isDark(),
     };
   },
   methods: {
