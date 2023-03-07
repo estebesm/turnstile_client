@@ -3,7 +3,8 @@ import { fetchWrapper } from "@/helpers/fetch";
 import { notify } from "@kyvg/vue3-notification";
 import router from "@/router";
 
-const baseUrl = `${import.meta.env.VITE_API_URL}`;
+//const baseUrl = `${import.meta.env.VITE_API_URL}`;
+const baseUrl = `http://google.com/`;
 
 export const useUserStore = defineStore({
   id: "user",

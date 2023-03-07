@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="h-12 w-full lg:hidden"></div>
     <nav
       class="h-12 bg-main lg:hidden fixed bottom-0 flex items-center w-full border-t dark:border-gray-600 shadow-[0px_-1px_3px_rgba(82,82,91,0.3)]"
     >
@@ -35,11 +36,11 @@
         <li>
           <Button
             class="w-full h-full flex items-center justify-center"
-            @click="() => router.push('/memberships')"
+            @click="() => router.push('/cards')"
           >
             <svg
               class="w-7 h-7 stroke-secondary"
-              :class="{ 'stroke-primary': route.name === 'memberships' }"
+              :class="{ 'stroke-primary': route.name === 'cards' }"
               viewBox="0 0 24 24"
               fill="none"
               stroke-width="2"

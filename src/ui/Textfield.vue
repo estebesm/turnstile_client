@@ -1,19 +1,24 @@
 <template>
   <div>
-    <label v-show="label" class="block text-sm mb-2">{{ label }}</label>
+    <div v-if="props.title" class="text-sm mb-1 pl-1">{{ props.title }}</div>
     <input
       class="py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-main focus:outline-primary placeholder:font-[400]"
       v-bind="$attrs"
+      :value="value"
+      @input="$emit('update:value', $event.target.value)"
     />
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    label: {
-      type: String,
-    },
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    default: "",
   },
-};
+  value: {
+    type: String,
+    default: "",
+  },
+});
 </script>
