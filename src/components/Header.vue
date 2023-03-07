@@ -19,7 +19,11 @@
             <li>
               <button
                 class="transition rounded-sm px-2"
-                :class="{ 'text-primary': route.name === 'memberships' }"
+                :class="{
+                  'text-primary':
+                    route.name === 'memberships' ||
+                    route.name === 'membershipProfile',
+                }"
                 @click="() => router.push('/memberships')"
               >
                 <span>Абонементы</span>

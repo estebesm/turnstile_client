@@ -1,15 +1,16 @@
 <template>
   <div>
     <div class="relative">
-      <label v-show="label" class="block text-sm mb-2">{{ label }}</label>
+      <div v-if="props.title" class="text-sm mb-1 pr-1">{{ props.title }}</div>
       <Button
         class="flex relative z-0 justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-main"
         type="button"
         v-bind="$attrs"
+        :disabled="props.options.length < 2"
         @click="isOptionsExpanded = !isOptionsExpanded"
         @blur="isOptionsExpanded = false"
       >
-        <span>{{ props.value }}</span>
+        <span>{{ props.value.name }}</span>
         <svg
           fill="none"
           viewBox="0 0 24 24"
@@ -41,9 +42,9 @@
             v-for="(option, index) in props.options"
             :key="index"
             class="px-3 py-2 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-black/30 cursor-pointer font-[400]"
-            @mousedown.prevent="setOption(option)"
+            @mousedown.prevent="setValue(option)"
           >
-            {{ option }}
+            {{ option.name }}
           </li>
         </ul>
       </transition>
@@ -55,31 +56,33 @@
 import { ref, defineProps } from "vue";
 import Button from "./Button.vue";
 
+const emit = defineEmits(["update:value"]);
+
 const props = defineProps({
-  label: {
+  title: {
     type: String,
   },
   options: {
     type: Array,
   },
   value: {
-    type: String,
-  },
-  setValue: {
-    type: Function,
+    type: Object,
   },
 });
 
 const isOptionsExpanded = ref(false);
 
-function setOption(option) {
-  props.setValue(option);
+function setValue(option) {
+  emit("update:value", option);
   isOptionsExpanded.value = false;
 }
 </script>
 
-<style>
+<style scoped>
 .ease-custom {
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+button:disabled svg {
+  display: none;
 }
 </style>
