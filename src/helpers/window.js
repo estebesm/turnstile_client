@@ -13,3 +13,7 @@ export function isMobile() {
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
 }
+
+export function scrollToTop() {
+  window.scrollTo(0, 0);
+}

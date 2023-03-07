@@ -6,9 +6,9 @@
       @click="toggleModal"
     >
       <span class="text-btn text-sm">{{
-        `${state.selectedDate.date()} ${
-          weekArray.monthsRod[state.selectedDate.month()]
-        } ${state.selectedDate.year()}`
+        `${props.selectedDate.date()} ${
+          weekArray.monthsRod[props.selectedDate.month()]
+        } ${props.selectedDate.year()}`
       }}</span>
       <svg
         width="20px"
@@ -30,7 +30,7 @@
     <Modal :modal-active="modalActive" @close-modal="toggleModal">
       <div class="bg-side pb-6 rounded">
         <Calendar
-          :selected-date="state.selectedDate"
+          :selected-date="props.selectedDate"
           :picked-date="state.pickedDate"
           :pick-date="pickDate"
         />
@@ -58,15 +58,22 @@ import Calendar from "@/components/Calendar.vue";
 import Modal from "@/components/Modal.vue";
 import Button from "@/ui/Button.vue";
 
+const props = defineProps({
+  selectedDate: {
+    type: Object,
+    required: true,
+  },
+});
+const emit = defineEmits(["update:selectedDate"]);
+
 const weekArray = calendar.weekArray;
 
 const state = reactive({
   pickedDate: calendar.currentDate,
-  selectedDate: calendar.currentDate,
 });
 
 const selectDate = (date) => {
-  state.selectedDate = date;
+  emit("update:selectedDate", date);
   modalActive.value = false;
 };
 const pickDate = (date) => {
@@ -80,7 +87,7 @@ const cancelPick = () => {
 
 const modalActive = ref(null);
 const toggleModal = () => {
-  state.pickedDate = state.selectedDate;
+  state.pickedDate = props.selectedDate;
   modalActive.value = !modalActive.value;
 };
 </script>

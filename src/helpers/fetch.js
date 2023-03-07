@@ -1,4 +1,4 @@
-import { useUserStore } from "@/stores/user";
+//import { useUserStore } from "@/stores/user";
 
 export const fetchWrapper = {
   login: request("OAuth"),
@@ -35,10 +35,12 @@ function request(method) {
 }
 
 function authHeader(url) {
-  const { access_token } = useUserStore();
+  //const { access_token } = useUserStore();
+  const access_token = "";
 
   const isLoggedIn = !!access_token;
-  const isApiUrl = url.startsWith(import.meta.env.VITE_API_URL);
+  //const isApiUrl = url.startsWith(import.meta.env.VITE_API_URL);
+  const isApiUrl = true;
 
   if (isLoggedIn && isApiUrl) {
     return { Authorization: `Bearer ${access_token}` };
@@ -51,17 +53,17 @@ function handleResponse(response) {
   return response.text().then((text) => {
     const data = text && JSON.parse(text);
 
-    if (!response.ok) {
-      const { user, logout } = useUserStore();
+    // if (!response.ok) {
+    //   const { user, logout } = useUserStore();
 
-      if ([401, 403].includes(response.status) && user) {
-        logout();
-      }
+    //   if ([401, 403].includes(response.status) && user) {
+    //     logout();
+    //   }
 
-      const error = (data && data.message) || response.statusText;
+    //   const error = (data && data.message) || response.statusText;
 
-      return Promise.reject(error);
-    }
+    //   return Promise.reject(error);
+    // }
 
     return data;
   });

@@ -4,7 +4,10 @@
       <div
         class="pb-1 flex items-center gap-x-4 gap-y-2 flex-wrap sm:flex-nowrap sm:justify-between"
       >
-        <DatePicker />
+        <DatePicker
+          v-model:selectedDate="state.selectedDate"
+          :selected-date="state.selectedDate"
+        />
         <SearchTextfield
           :results="state.searchResults"
           :set-results="search"
@@ -28,13 +31,16 @@ import DatePicker from "@/components/DatePicker.vue";
 import { useHead } from "@vueuse/head";
 import SearchTextfield from "@/components/SearchTextfield.vue";
 import { reactive } from "vue";
+import { calendar } from "@/helpers/calendar";
 import Layout from "@/components/Layout.vue";
 useHead({
   title: "Журнал",
 });
 const state = reactive({
   searchResults: [],
+  selectedDate: calendar.currentDate,
 });
+
 const db = ["akas", "estebes", "dastan", "adilet", "talgat"];
 const search = (value) => {
   if (!value) {

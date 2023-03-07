@@ -12,7 +12,8 @@
       <tr
         v-for="(item, index) in visits"
         :key="item.cardId"
-        class="bg-side align-top"
+        class="bg-side align-top cursor-pointer transition-colors"
+        @click="router.push(`cards/${item.cardId}`)"
       >
         <td class="text-center p-4 rounded-l">{{ index + 1 }}</td>
         <td class="text-center p-4">{{ item.cardId }}</td>
@@ -28,6 +29,9 @@
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const visits = [
   {
     cardId: 13234,
