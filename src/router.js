@@ -18,14 +18,14 @@ const router = createRouter({
       // },
     },
     {
-      path: "/memberships",
-      name: "memberships",
-      component: () => import("@/pages/Memberships.vue"),
+      path: "/cards",
+      name: "cards",
+      component: () => import("@/pages/Cards.vue"),
     },
     {
-      path: "/memberships/:id",
-      name: "membershipProfile",
-      component: () => import("@/pages/MembershipProfile.vue"),
+      path: "/Cards/:id",
+      name: "cardProfile",
+      component: () => import("@/pages/CardProfile.vue"),
     },
     {
       path: "/information",

@@ -10,7 +10,7 @@
             <p>Дата обновления 21 февраля 2023г.</p>
           </div>
         </div>
-        <EditMembershipForm />
+        <EditCardForm />
       </div>
     </div>
   </Layout>
@@ -18,5 +18,5 @@
 
 <script setup>
 import Layout from "@/components/Layout.vue";
-import EditMembershipForm from "@/components/forms/EditMembershipForm.vue";
+import EditCardForm from "@/components/forms/EditCardForm.vue";
 </script>

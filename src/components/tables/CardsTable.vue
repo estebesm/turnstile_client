@@ -1,9 +1,12 @@
 <template>
   <div class="overflow-x-auto pb-1 text-sm md:text-md">
-    <h3 v-if="props.loading" class="text-center py-24">loading...</h3>
-    <h3 v-else-if="props.memberships.length === 0" class="text-center py-24">
-      table is empty
-    </h3>
+    <Skeleton v-if="props.loading" class="w-full h-[70vh] mt-2 rounded" />
+    <div
+      v-else-if="props.cards.length === 0"
+      class="w-full h-[60vh] mt-2 rounded flex justify-center items-center"
+    >
+      <span class="font-[400] text-lg">Данных нет</span>
+    </div>
     <table v-else class="w-full min-w-24 border-separate border-spacing-y-1">
       <tr class="bg-side">
         <th class="p-4 rounded-l">№</th>
@@ -14,10 +17,10 @@
         <th class="whitespace-nowrap p-4 rounded-r">Дата окончания</th>
       </tr>
       <tr
-        v-for="(item, index) in props.memberships"
+        v-for="(item, index) in props.cards"
         :key="item.card_id"
         class="bg-side align-top cursor-pointer"
-        @click="router.push(`memberships/${item.card_id}`)"
+        @click="router.push(`cards/${item.card_id}`)"
       >
         <td class="text-center p-4 rounded-l">{{ index + 1 }}</td>
         <td class="text-center p-4">{{ item.card_id }}</td>
@@ -38,10 +41,11 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import Skeleton from "@/ui/Skeleton.vue";
 
 const router = useRouter();
 const props = defineProps({
-  memberships: {
+  cards: {
     type: Array,
   },
   loading: {

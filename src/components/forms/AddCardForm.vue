@@ -61,9 +61,9 @@ import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
 import { reactive, onMounted, toRaw } from "vue";
 import { getCardTypes } from "@/helpers/api";
-import { useMembershipsStore } from "@/stores/memberships.js";
+import { useCardsStore } from "@/stores/cards.js";
 
-const store = useMembershipsStore();
+const store = useCardsStore();
 
 const state = reactive({
   card_types: [{ name: "dee" }, { name: "detbv" }],
@@ -77,10 +77,10 @@ const state = reactive({
 });
 
 onMounted(() => {
-  // getCardTypes().then((card_types) => {
-  //   state.card_types = card_types;
-  //   state.card_type = card_types[0] || { name: "" };
-  // });
+  getCardTypes().then((card_types) => {
+    state.card_types = card_types;
+    state.card_type = card_types[0] || { name: "" };
+  });
 });
 
 function submit() {

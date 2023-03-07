@@ -21,10 +21,9 @@
                 class="transition rounded-sm px-2"
                 :class="{
                   'text-primary':
-                    route.name === 'memberships' ||
-                    route.name === 'membershipProfile',
+                    route.name === 'cards' || route.name === 'cardProfile',
                 }"
-                @click="() => router.push('/memberships')"
+                @click="() => router.push('/cards')"
               >
                 <span>Абонементы</span>
               </button>

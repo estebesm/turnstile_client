@@ -1,28 +1,30 @@
 import { defineStore } from "pinia";
 import { fetchWrapper } from "@/helpers/fetch";
 import { notify } from "@kyvg/vue3-notification";
+import { calendar } from "@/helpers/calendar";
 
 const baseUrl = "http://192.168.43.191:8000/api";
 
-export const useMembershipsStore = defineStore({
-  id: "memberships",
+export const useCardsStore = defineStore({
+  id: "cards",
   state: () => ({
     loading: false,
-    memberships: [],
+    cards: [],
+    selectedDate: calendar.currentDate,
   }),
   actions: {
-    async getMemberships() {
+    async getCards() {
       this.loading = true;
       return fetchWrapper
         .get(`${baseUrl}/cards/`)
         .then((data) => {
           console.log(data);
-          this.memberships = data;
+          this.cards = data;
         })
         .catch((error) => {
           notify({
-            title: "Error",
-            text: error,
+            title: "Ошибка",
+            text: "Проверьте интернет соединение",
             type: "error",
           });
         })
@@ -36,7 +38,7 @@ export const useMembershipsStore = defineStore({
           ...body,
         })
         .then((data) => {
-          this.memberships.push(data);
+          this.cards.push(data);
         })
         .catch((error) => {
           notify({

@@ -5,7 +5,10 @@
         class="pb-1 flex items-center justify-between flex-wrap gap-x-4 gap-y-2"
       >
         <div class="flex items-center flex-wrap gap-x-4 gap-y-2">
-          <DatePicker />
+          <DatePicker
+            v-model:selectedDate="selectedDate"
+            :selected-date="selectedDate"
+          />
           <Button class="bg-primary py-2.5 px-4 rounded" @click="toggleModal">
             <span class="text-btn">Добавить абонемент</span>
           </Button>
@@ -14,7 +17,7 @@
               <div
                 class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px] max-h-[calc(100vh-80px)] overflow-y-auto my-1"
               >
-                <MembershipForm :close-modal="() => toggleModal(false)" />
+                <AddCardForm :close-modal="() => toggleModal(false)" />
               </div>
             </div>
           </Modal>
@@ -26,28 +29,23 @@
           class="w-full sm:w-[300px] md:w-[400px]"
         /> -->
       </div>
-      <MembershipsTable :memberships="memberships" :loading="store.loading" />
-      <div class="flex justify-end">
-        <button class="mt-2 hover:text-primary transition font-[400]">
-          Скачать excel
-        </button>
-      </div>
+      <CardsTable :cards="cards" :loading="store.loading" />
     </div>
   </Layout>
 </template>
 
 <script setup>
-import { ref, onMounted, toRaw } from "vue";
+import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useHead } from "@vueuse/head";
-import { useMembershipsStore } from "@/stores/memberships.js";
+import { useCardsStore } from "@/stores/cards.js";
 import DatePicker from "@/components/DatePicker.vue";
-import MembershipsTable from "@/components/tables/MembershipsTable.vue";
+import CardsTable from "@/components/tables/CardsTable.vue";
 import Button from "@/ui/Button.vue";
 import Modal from "@/components/Modal.vue";
-import MembershipForm from "@/components/forms/MembershipForm.vue";
+import AddCardForm from "@/components/forms/AddCardForm.vue";
 import Layout from "@/components/Layout.vue";
-import SearchTextfield from "../components/SearchTextfield.vue";
+import SearchTextfield from "@/components/SearchTextfield.vue";
 useHead({
   title: "Абонементы",
 });
@@ -56,10 +54,10 @@ const toggleModal = () => {
   modalActive.value = !modalActive.value;
 };
 
-const store = useMembershipsStore();
-const { memberships } = storeToRefs(store);
+const store = useCardsStore();
+const { cards, selectedDate } = storeToRefs(store);
 onMounted(() => {
-  store.getMemberships();
+  store.getCards();
 });
 </script>
 

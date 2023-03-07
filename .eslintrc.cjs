@@ -13,7 +13,6 @@ module.exports = {
     "vue/require-default-prop": "off",
     "vue/require-prop-type-constructor": "off",
     "vue/no-v-model-argument": "off",
-    "vue/no-parsing-error": "off",
     "prettier/prettier": [
       "error",
       {
