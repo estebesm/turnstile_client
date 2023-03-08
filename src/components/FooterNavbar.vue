@@ -55,8 +55,18 @@
           </Button>
         </li>
         <li>
-          <Button class="w-full h-full flex items-center justify-center">
-            <svg viewBox="0 0 48 48" class="h-7 w-7 fill-secondary">
+          <Button
+            class="w-full h-full flex items-center justify-center"
+            @click="() => router.push('/information')"
+          >
+            <svg
+              viewBox="0 0 48 48"
+              class="h-7 w-7 fill-secondary"
+              :class="{
+                'fill-[rgb(var(--color-primary))]':
+                  route.name === 'information',
+              }"
+            >
               <g stroke-linecap="round" stroke-linejoin="round"></g>
               <g>
                 <g>
@@ -75,10 +85,16 @@
           </Button>
         </li>
         <li>
-          <Button class="w-full h-full flex items-center justify-center">
+          <Button
+            class="w-full h-full flex items-center justify-center"
+            @click="() => router.push('/settings')"
+          >
             <svg
               class="h-7 w-7 stroke-secondary"
               viewBox="0 0 24 24"
+              :class="{
+                'stroke-[rgb(var(--color-primary))]': route.name === 'settings',
+              }"
               fill="none"
             >
               <g stroke-linecap="round" stroke-linejoin="round"></g>

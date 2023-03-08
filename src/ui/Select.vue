@@ -3,7 +3,7 @@
     <div class="relative">
       <div v-if="props.title" class="text-sm mb-1 pr-1">{{ props.title }}</div>
       <Button
-        class="flex relative z-0 justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-main"
+        class="flex relative z-0 justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-side"
         type="button"
         v-bind="$attrs"
         :disabled="props.options.length < 2"
@@ -40,7 +40,7 @@
       >
         <ul
           v-show="isOptionsExpanded"
-          class="absolute z-[1] left-0 right-0 mb-4 bg-main divide-y dark:divide-side rounded-b shadow-lg border-t border-t-side"
+          class="absolute z-[1] left-0 right-0 mb-4 bg-main divide-y dark:divide-side rounded-b shadow-lg"
         >
           <li
             v-for="(option, index) in props.options"
