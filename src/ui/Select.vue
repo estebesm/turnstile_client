@@ -10,7 +10,11 @@
         @click="isOptionsExpanded = !isOptionsExpanded"
         @blur="isOptionsExpanded = false"
       >
-        <span>{{ props.value.name }}</span>
+        <span :class="{ 'text-main': props.options.length === 0 }">{{
+          props.options.length === 0 || props.value === undefined
+            ? "default"
+            : props.value.name
+        }}</span>
         <svg
           fill="none"
           viewBox="0 0 24 24"
@@ -36,7 +40,7 @@
       >
         <ul
           v-show="isOptionsExpanded"
-          class="absolute z-[1] left-0 right-0 mb-4 bg-main divide-y rounded-b shadow-lg border-t border-t-side"
+          class="absolute z-[1] left-0 right-0 mb-4 bg-main divide-y dark:divide-side rounded-b shadow-lg border-t border-t-side"
         >
           <li
             v-for="(option, index) in props.options"
@@ -54,7 +58,7 @@
 
 <script setup>
 import { ref, defineProps } from "vue";
-import Button from "./Button.vue";
+import Button from "@/ui/Button.vue";
 
 const emit = defineEmits(["update:value"]);
 

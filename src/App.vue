@@ -3,4 +3,13 @@
   <RouterView />
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+import { useCommonStore } from "@/stores/common";
+
+const commonStore = useCommonStore();
+
+onMounted(() => {
+  commonStore.getCardTypes();
+});
+</script>

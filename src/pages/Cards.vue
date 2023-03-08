@@ -29,7 +29,10 @@
           class="w-full sm:w-[300px] md:w-[400px]"
         /> -->
       </div>
-      <CardsTable :cards="cards" :loading="store.loading" />
+      <CardsTable
+        :cards="cards"
+        :loading="store.loading && cards.length === 0"
+      />
     </div>
   </Layout>
 </template>

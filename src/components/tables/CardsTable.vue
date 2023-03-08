@@ -24,7 +24,7 @@
       >
         <td class="text-center p-4 rounded-l">{{ index + 1 }}</td>
         <td class="text-center p-4">{{ item.card_id }}</td>
-        <td class="text-center p-4">{{ item.card_type }}</td>
+        <td class="text-center p-4">{{ item.card_type_name }}</td>
         <td class="whitespace-nowrap text-center p-4">
           {{ `${item.first_name} ${item.last_name}` }}
         </td>

@@ -3,7 +3,7 @@ import { fetchWrapper } from "@/helpers/fetch";
 import { notify } from "@kyvg/vue3-notification";
 import { calendar } from "@/helpers/calendar";
 
-const baseUrl = "http://192.168.43.191:8000/api";
+const baseUrl = "http://baha996.pythonanywhere.com/api";
 
 export const useCardsStore = defineStore({
   id: "cards",
@@ -18,7 +18,6 @@ export const useCardsStore = defineStore({
       return fetchWrapper
         .get(`${baseUrl}/cards/`)
         .then((data) => {
-          console.log(data);
           this.cards = data;
         })
         .catch((error) => {
