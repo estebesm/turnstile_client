@@ -10,7 +10,7 @@
     />
     <Select
       v-model:value="state.card_type"
-      :options="state.card_types"
+      :options="commonStore.card_types"
       :value="state.card_type"
       title="Тип абонемента"
       class="w-full"
@@ -59,15 +59,15 @@
 import Button from "@/ui/Button.vue";
 import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
-import { reactive, onMounted, toRaw } from "vue";
-import { getCardTypes } from "@/helpers/api";
+import { reactive, toRaw } from "vue";
 import { useCardsStore } from "@/stores/cards.js";
+import { useCommonStore } from "@/stores/common";
 
 const store = useCardsStore();
+const commonStore = useCommonStore();
 
 const state = reactive({
-  card_types: [{ name: "dee" }, { name: "detbv" }],
-  card_type: { name: "Тип абонемента" },
+  card_type: commonStore.card_types[0],
   employees: [],
   employee: { name: "Тренер" },
   first_name: "",
@@ -76,15 +76,7 @@ const state = reactive({
   phone_number: "",
 });
 
-onMounted(() => {
-  getCardTypes().then((card_types) => {
-    state.card_types = card_types;
-    state.card_type = card_types[0] || { name: "" };
-  });
-});
-
 function submit() {
-  console.log(toRaw(state));
   const { card_id, card_type, first_name, last_name, phone_number } =
     toRaw(state);
   store.createCard({
