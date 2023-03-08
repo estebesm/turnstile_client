@@ -11,7 +11,7 @@
               <button
                 class="transition rounded-sm px-2"
                 :class="{ 'text-primary': route.name === 'dashboard' }"
-                @click="() => router.push('/dashboard')"
+                @click="() => router.push('/')"
               >
                 <span>Журнал</span>
               </button>

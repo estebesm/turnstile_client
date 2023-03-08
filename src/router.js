@@ -4,13 +4,13 @@ import { useUserStore } from "@/stores/user";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    // {
+    //   path: "/",
+    //   name: "main",
+    //   redirect: "/dashboard",
+    // },
     {
       path: "/",
-      name: "main",
-      redirect: "/dashboard",
-    },
-    {
-      path: "/dashboard",
       name: "dashboard",
       component: () => import("@/pages/Dashboard.vue"),
       // meta: {

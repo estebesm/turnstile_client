@@ -8,7 +8,7 @@
         <li>
           <Button
             class="w-full h-full flex items-center justify-center"
-            @click="() => router.push('/dashboard')"
+            @click="() => router.push('/')"
           >
             <svg
               class="h-7 w-7 fill-secondary"
