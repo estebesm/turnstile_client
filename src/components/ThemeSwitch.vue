@@ -22,16 +22,18 @@ function toggleTheme() {
   if (this.toggleActive) {
     this.toggleActive = false;
     document.documentElement.setAttribute("data-mode", "light");
+    window.localStorage.setItem("theme", "light");
   } else {
     this.toggleActive = true;
     document.documentElement.setAttribute("data-mode", "dark");
+    window.localStorage.setItem("theme", "dark");
   }
 }
 
 function isDark() {
   return !!(
-    document.documentElement.attributes["data-mode"] &&
-    document.documentElement.attributes["data-mode"].value === "dark"
+    window.localStorage.getItem("theme") &&
+    window.localStorage.getItem("theme") === "dark"
   );
 }
 export default {
