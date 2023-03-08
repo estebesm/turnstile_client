@@ -31,15 +31,15 @@ module.exports = {
       ...colors,
       primary: {
         DEFAULT: "rgb(var(--color-primary))",
-        light: "rgba(var(--color-primary), .2)",
+        light: "rgba(var(--color-primary), .7)",
       },
       success: {
         DEFAULT: "rgb(var(--color-success))",
-        light: "rgba(var(--color-success), .2)",
+        light: "rgba(var(--color-success), .7)",
       },
       error: {
         DEFAULT: "rgb(var(--color-error))",
-        light: "rgba(var(--color-error), .2)",
+        light: "rgba(var(--color-error), .7)",
         100: "rgba(var(--color-error), .1)",
         200: "rgba(var(--color-error), .2)",
       },

@@ -41,6 +41,7 @@
               <button
                 class="transition rounded-sm px-2"
                 :class="{ 'text-primary': route.name === 'settings' }"
+                @click="() => router.push('/settings')"
               >
                 <span>Настройки</span>
               </button>
