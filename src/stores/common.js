@@ -25,5 +25,49 @@ export const useCommonStore = defineStore({
           });
         });
     },
+    async updateCardType(card_type) {
+      return fetchWrapper
+        .put(`${baseUrl}/card-types/${card_type.id}/`, card_type)
+        .then((res) => {
+          this.card_types = this.card_types.map((item) =>
+            item.id === res.id ? res : item
+          );
+        })
+        .catch((error) => {
+          notify({
+            title: "Error",
+            text: error,
+            type: "error",
+          });
+        });
+    },
+    async createCardType(card_type) {
+      return fetchWrapper
+        .post(`${baseUrl}/card-types/`, card_type)
+        .then((res) => {
+          this.card_types.push(res);
+        })
+        .catch((error) => {
+          notify({
+            title: "Error",
+            text: error,
+            type: "error",
+          });
+        });
+    },
+    async deleteCardType(id) {
+      return fetchWrapper
+        .delete(`${baseUrl}/card-types/${id}/`)
+        .then((res) => {
+          this.card_types = this.card_types.filter((item) => item.id !== id);
+        })
+        .catch((error) => {
+          notify({
+            title: "Error",
+            text: error,
+            type: "error",
+          });
+        });
+    },
   },
 });
