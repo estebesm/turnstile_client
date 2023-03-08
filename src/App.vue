@@ -11,5 +11,8 @@ const commonStore = useCommonStore();
 
 onMounted(() => {
   commonStore.getCardTypes();
+  if (window.localStorage.getItem("theme") === "dark") {
+    document.documentElement.setAttribute("data-mode", "dark");
+  }
 });
 </script>
