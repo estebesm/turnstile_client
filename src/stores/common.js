@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { fetchWrapper } from "@/helpers/fetch";
 import { notify } from "@kyvg/vue3-notification";
 
-const baseUrl = "http://baha996.pythonanywhere.com/api";
+const baseUrl = "https://baha996.pythonanywhere.com/api";
 
 export const useCommonStore = defineStore({
   id: "common",

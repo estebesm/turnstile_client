@@ -2,13 +2,6 @@
   <form class="grid grid-cols-1 gap-y-3">
     <h3 class="text-xl mb-4">Создать абонемент</h3>
     <Textfield
-      v-model:value="state.id"
-      title="ID абонемента"
-      placeholder="123456"
-      class="w-full"
-      type="number"
-    />
-    <Textfield
       v-model:value="state.name"
       title="Название абонемента"
       placeholder="Взрослый с тренером"
@@ -60,7 +53,6 @@ const commonStore = useCommonStore();
 
 const state = reactive({
   loading: false,
-  id: "",
   name: "",
   price: "",
   period: "",
