@@ -21,16 +21,10 @@
       :modal-active="state.createModalActive"
       @close-modal="state.createModalActive = false"
     >
-      <div class="rounded-lg overflow-hidden">
-        <div
-          class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px] max-h-[calc(100vh-80px)] overflow-y-auto my-1"
-        >
-          <CreateCardTypeForm
-            :value="state.createModalActive"
-            @close-modal="state.createModalActive = false"
-          />
-        </div>
-      </div>
+      <CreateCardTypeForm
+        :value="state.createModalActive"
+        @close-modal="state.createModalActive = false"
+      />
     </Modal>
   </Layout>
 </template>

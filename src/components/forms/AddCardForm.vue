@@ -1,5 +1,7 @@
 <template>
-  <form class="grid grid-cols-1 gap-y-3">
+  <form
+    class="grid grid-cols-1 gap-y-3 bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px]"
+  >
     <h3 class="text-xl mb-4">Добавить абонемент</h3>
     <Textfield
       v-model:value="state.card_id"

@@ -13,13 +13,7 @@
             <span class="text-btn">Добавить абонемент</span>
           </Button>
           <Modal :modal-active="modalActive" @close-modal="toggleModal">
-            <div class="rounded-lg overflow-hidden">
-              <div
-                class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px] max-h-[calc(100vh-80px)] overflow-y-auto my-1"
-              >
-                <AddCardForm :close-modal="() => toggleModal(false)" />
-              </div>
-            </div>
+            <AddCardForm :close-modal="() => toggleModal(false)" />
           </Modal>
         </div>
         <!-- <SearchTextfield

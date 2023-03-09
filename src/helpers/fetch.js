@@ -53,17 +53,17 @@ function handleResponse(response) {
   return response.text().then((text) => {
     const data = text && JSON.parse(text);
 
-    // if (!response.ok) {
-    //   const { user, logout } = useUserStore();
+    if (!response.ok) {
+      //const { user, logout } = useUserStore();
 
-    //   if ([401, 403].includes(response.status) && user) {
-    //     logout();
-    //   }
+      // if ([401, 403].includes(response.status) && user) {
+      //   logout();
+      // }
 
-    //   const error = (data && data.message) || response.statusText;
+      const error = (data && data.message) || response.statusText;
 
-    //   return Promise.reject(error);
-    // }
+      return Promise.reject(error);
+    }
 
     return data;
   });

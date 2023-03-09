@@ -3,12 +3,16 @@
     <Transition name="modal-outer">
       <div
         v-show="modalActive"
-        class="fixed w-screen bg-black/70 h-screen top-0 left-0 flex items-center justify-center"
+        class="fixed w-screen bg-black/70 h-screen top-0 left-0 flex items-center justify-center pt-10 overflow-y-auto my-1"
         :class="{ 'overflow-y-contain': modalActive }"
         @click="$emit('close-modal')"
       >
         <Transition name="modal-inner">
-          <div v-if="modalActive" @click="(event) => event.stopPropagation()">
+          <div
+            v-if="modalActive"
+            class="my-[10vh]"
+            @click="(event) => event.stopPropagation()"
+          >
             <slot />
           </div>
         </Transition>
