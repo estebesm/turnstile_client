@@ -73,33 +73,21 @@
       :modal-active="state.editModalActive"
       @close-modal="state.editModalActive = false"
     >
-      <div class="rounded-lg overflow-hidden">
-        <div
-          class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px] max-h-[calc(100vh-80px)] overflow-y-auto my-1"
-        >
-          <EditCardTypeForm
-            :value="state.editModalActive"
-            :card-type="props.cardType"
-            @close-modal="state.editModalActive = false"
-          />
-        </div>
-      </div>
+      <EditCardTypeForm
+        :value="state.editModalActive"
+        :card-type="props.cardType"
+        @close-modal="state.editModalActive = false"
+      />
     </Modal>
     <Modal
       :modal-active="state.deleteModalActive"
       @close-modal="state.deleteModalActive = false"
     >
-      <div class="rounded-lg overflow-hidden">
-        <div
-          class="bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px] max-h-[calc(100vh-80px)] overflow-y-auto my-1"
-        >
-          <DeleteCardTypeForm
-            :value="state.deleteModalActive"
-            :card-type="props.cardType"
-            @close-modal="state.deleteModalActive = false"
-          />
-        </div>
-      </div>
+      <DeleteCardTypeForm
+        :value="state.deleteModalActive"
+        :card-type="props.cardType"
+        @close-modal="state.deleteModalActive = false"
+      />
     </Modal>
   </div>
 </template>
@@ -121,5 +109,4 @@ const state = reactive({
   editModalActive: false,
   deleteModalActive: false,
 });
-console.log(toRaw(props.cardType));
 </script>
