@@ -3,7 +3,7 @@ import { fetchWrapper } from "@/helpers/fetch";
 import { notify } from "@kyvg/vue3-notification";
 import { calendar } from "@/helpers/calendar";
 
-const baseUrl = "http://baha996.pythonanywhere.com/api";
+const baseUrl = "https://baha996.pythonanywhere.com/api";
 
 export const useCardsStore = defineStore({
   id: "cards",
