@@ -3,19 +3,19 @@
     <Transition name="modal-outer">
       <div
         v-show="modalActive"
-        class="fixed w-screen bg-black/70 h-screen top-0 left-0 flex items-center justify-center pt-10 overflow-y-auto my-1"
+        class="fixed w-screen bg-black/70 h-screen top-0 left-0 overflow-y-auto"
         :class="{ 'overflow-y-contain': modalActive }"
         @click="$emit('close-modal')"
       >
-        <Transition name="modal-inner">
-          <div
-            v-if="modalActive"
-            class="my-[10vh]"
-            @click="(event) => event.stopPropagation()"
-          >
-            <slot />
-          </div>
-        </Transition>
+        <div
+          class="min-h-full w-full flex items-center justify-center py-[10vh]"
+        >
+          <Transition name="modal-inner">
+            <div v-if="modalActive" @click="(event) => event.stopPropagation()">
+              <slot />
+            </div>
+          </Transition>
+        </div>
       </div>
     </Transition>
   </Teleport>
