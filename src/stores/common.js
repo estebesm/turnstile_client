@@ -14,8 +14,9 @@ export const useCommonStore = defineStore({
     async getCardTypes() {
       return fetchWrapper
         .get(`${baseUrl}/card-types/`)
-        .then((data) => {
-          this.card_types = data;
+        .then((res) => {
+          this.card_types = res;
+          return res;
         })
         .catch((error) => {
           notify({
@@ -32,6 +33,7 @@ export const useCommonStore = defineStore({
           this.card_types = this.card_types.map((item) =>
             item.id === res.id ? res : item
           );
+          return res;
         })
         .catch((error) => {
           notify({
@@ -46,6 +48,7 @@ export const useCommonStore = defineStore({
         .post(`${baseUrl}/card-types/`, card_type)
         .then((res) => {
           this.card_types.push(res);
+          return res;
         })
         .catch((error) => {
           notify({
@@ -60,6 +63,7 @@ export const useCommonStore = defineStore({
         .delete(`${baseUrl}/card-types/${id}/`)
         .then((res) => {
           this.card_types = this.card_types.filter((item) => item.id !== id);
+          return res;
         })
         .catch((error) => {
           notify({

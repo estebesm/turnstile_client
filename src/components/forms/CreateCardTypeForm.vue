@@ -109,7 +109,7 @@
 import Button from "@/ui/Button.vue";
 import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
-import { reactive, defineEmits, toRaw, onMounted } from "vue";
+import { reactive, defineEmits, toRaw } from "vue";
 import { useCommonStore } from "@/stores/common";
 
 const commonStore = useCommonStore();
@@ -134,13 +134,15 @@ async function submit() {
   const { using_type, owner_name, name, price, period, visits_count } =
     toRaw(state);
   state.loading = true;
-  await commonStore.createCardType({
+  const res = await commonStore.createCardType({
     name,
     price,
     period,
     visits_count,
   });
   state.loading = false;
-  emit("close-modal");
+  if (res) {
+    emit("close-modal");
+  }
 }
 </script>

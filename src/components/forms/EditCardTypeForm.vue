@@ -73,7 +73,7 @@ const emit = defineEmits(["close-modal"]);
 async function submit() {
   const { id, name, price, period, visits_count } = toRaw(state);
   state.loading = true;
-  await commonStore.updateCardType({
+  const res = await commonStore.updateCardType({
     id,
     name,
     price,
@@ -81,6 +81,8 @@ async function submit() {
     visits_count,
   });
   state.loading = false;
-  emit("close-modal");
+  if (res) {
+    emit("close-modal");
+  }
 }
 </script>

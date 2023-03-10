@@ -23,7 +23,7 @@
 
 <script setup>
 import { watch } from "vue";
-import { isMobile, rootElement } from "@/helpers/window";
+import { rootElement } from "@/helpers/window";
 defineEmits(["close-modal"]);
 
 const props = defineProps({

@@ -45,10 +45,12 @@
       placeholder="+996 500 123 456"
     />
     <div class="flex justify-end gap-x-4 mt-2">
-      <Button type="button" @click="props.closeModal">Отмена</Button>
+      <Button type="button" @click="$emit('close-modal')">Отмена</Button>
       <Button
         type="button"
         class="bg-primary rounded py-2 px-4 text-btn"
+        :class="{ 'bg-primary-light': state.loading }"
+        :disabled="state.loading"
         @click="submit"
       >
         Добавить
@@ -61,14 +63,17 @@
 import Button from "@/ui/Button.vue";
 import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
-import { reactive, toRaw } from "vue";
+import { reactive, toRaw, defineEmits } from "vue";
 import { useCardsStore } from "@/stores/cards.js";
 import { useCommonStore } from "@/stores/common";
+
+const emit = defineEmits(["close-modal"]);
 
 const store = useCardsStore();
 const commonStore = useCommonStore();
 
 const state = reactive({
+  loading: false,
   card_type: commonStore.card_types[0],
   employees: [],
   employee: { name: "Тренер" },
@@ -78,21 +83,20 @@ const state = reactive({
   phone_number: "",
 });
 
-function submit() {
+async function submit() {
+  state.loading = true;
   const { card_id, card_type, first_name, last_name, phone_number } =
     toRaw(state);
-  store.createCard({
+  const res = await store.createCard({
     card_id,
     card_type: card_type.id,
     first_name,
     last_name,
     phone_number,
   });
+  state.loading = false;
+  if (res) {
+    emit("close-modal");
+  }
 }
-
-const props = defineProps({
-  closeModal: {
-    type: Function,
-  },
-});
 </script>
