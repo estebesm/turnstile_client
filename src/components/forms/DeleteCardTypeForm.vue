@@ -22,7 +22,7 @@
 
 <script setup>
 import Button from "@/ui/Button.vue";
-import { reactive, defineEmits, toRaw } from "vue";
+import { reactive, defineEmits } from "vue";
 import { useCommonStore } from "@/stores/common";
 
 const commonStore = useCommonStore();
