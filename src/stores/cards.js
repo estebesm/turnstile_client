@@ -17,8 +17,9 @@ export const useCardsStore = defineStore({
       this.loading = true;
       return fetchWrapper
         .get(`${baseUrl}/cards/`)
-        .then((data) => {
-          this.cards = data;
+        .then((res) => {
+          this.cards = res;
+          return res;
         })
         .catch((error) => {
           notify({
@@ -36,8 +37,9 @@ export const useCardsStore = defineStore({
         .post(`${baseUrl}/cards/`, {
           ...body,
         })
-        .then((data) => {
-          this.cards.push(data);
+        .then((res) => {
+          this.cards.push(res);
+          return res;
         })
         .catch((error) => {
           notify({
