@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-h-[var(--doc-height)]">
     <Header />
     <slot />
   </div>
