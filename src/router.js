@@ -42,6 +42,11 @@ const router = createRouter({
       name: "login",
       component: () => import("@/pages/Login.vue"),
     },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "notfound",
+      component: () => import("@/pages/NotFound.vue"),
+    },
     // {
     //   path: "/stream/:id?",
     //   name: "stream",

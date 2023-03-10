@@ -6,5 +6,4 @@
 
 <script>
 //export default Main;
-import Layout from "@/components/Layout.vue";
 </script>
