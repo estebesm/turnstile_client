@@ -53,6 +53,18 @@ module.exports = {
       border: "#EDEFF2",
       btn: "rgb(var(--color-btn))",
     },
+    // height: (theme) => ({
+    //   auto: "auto",
+    //   ...theme("spacing"),
+    //   full: "100%",
+    //   screen: `${window.innerHeight}px`,
+    // }),
+    // minHeight: (theme) => ({
+    //   0: "0",
+    //   ...theme("spacing"),
+    //   full: "100%",
+    //   screen: `${window.innerHeight}px`,
+    // }),
     container: {
       center: true,
       padding: {

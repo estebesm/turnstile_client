@@ -1,6 +1,12 @@
 <template>
-  <header class="shadow-md">
-    <div class="container py-2 flex justify-between items-center">
+  <header
+    class="shadow-md bg-main"
+    :class="{
+      'sticky top-0 z-10 border-b dark:border-gray-600 shadow-[0px_-1px_3px_rgba(82,82,91,0.3)]':
+        isMobile(),
+    }"
+  >
+    <div class="container py-1.5 flex justify-between items-center">
       <div class="flex gap-x-4">
         <Logo />
       </div>
@@ -56,6 +62,7 @@
 
 <script setup>
 import { useRoute, useRouter } from "vue-router";
+import { isMobile } from "@/helpers/window";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
 import Logo from "@/ui/Logo.vue";
 const route = useRoute();

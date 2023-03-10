@@ -17,7 +17,10 @@
       </div>
       <VisitTable />
       <div class="flex justify-end">
-        <button class="mt-2 hover:text-primary transition font-[400]">
+        <button
+          class="mt-2 hover:text-primary transition font-[400]"
+          @click="clicked"
+        >
           Скачать excel
         </button>
       </div>
@@ -40,6 +43,12 @@ const state = reactive({
   searchResults: [],
   selectedDate: calendar.currentDate,
 });
+
+function clicked() {
+  alert(
+    "1-" + getComputedStyle(document.body).getPropertyValue("--doc-height")
+  );
+}
 
 const db = ["akas", "estebes", "dastan", "adilet", "talgat"];
 const search = (value) => {
