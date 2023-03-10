@@ -15,5 +15,5 @@ export function isMobile() {
 }
 
 export function scrollToTop() {
-  window.scrollTo(0, 0);
+  document.getElementById("app").scrollTo(0, 0);
 }
