@@ -9,11 +9,20 @@
             v-model:selectedDate="selectedDate"
             :selected-date="selectedDate"
           />
-          <Button class="bg-primary py-2.5 px-4 rounded" @click="toggleModal">
+          <Button
+            class="bg-primary py-2.5 px-4 rounded"
+            @click="state.createCardModalActive = true"
+          >
             <span class="text-btn">Добавить абонемент</span>
           </Button>
-          <Modal :modal-active="modalActive" @close-modal="toggleModal">
-            <AddCardForm :close-modal="() => toggleModal(false)" />
+          <Modal
+            :modal-active="state.createCardModalActive"
+            @close-modal="state.createCardModalActive = false"
+          >
+            <AddCardForm
+              :value="state.createCardModalActive"
+              @close-modal="state.createCardModalActive = false"
+            />
           </Modal>
         </div>
         <!-- <SearchTextfield
@@ -32,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive } from "vue";
 import { storeToRefs } from "pinia";
 import { useHead } from "@vueuse/head";
 import { useCardsStore } from "@/stores/cards.js";
@@ -46,10 +55,10 @@ import SearchTextfield from "@/components/SearchTextfield.vue";
 useHead({
   title: "Абонементы",
 });
-const modalActive = ref(null);
-const toggleModal = () => {
-  modalActive.value = !modalActive.value;
-};
+
+const state = reactive({
+  createCardModalActive: false,
+});
 
 const store = useCardsStore();
 const { cards, selectedDate } = storeToRefs(store);

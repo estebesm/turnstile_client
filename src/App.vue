@@ -1,11 +1,13 @@
 <template>
   <notifications position="bottom right" class="mb-12 lg:mb-0" />
   <RouterView />
+  <FooterNavbar />
 </template>
 
 <script setup>
 import { onMounted } from "vue";
 import { useCommonStore } from "@/stores/common";
+import FooterNavbar from "@/components/FooterNavbar.vue";
 
 const commonStore = useCommonStore();
 

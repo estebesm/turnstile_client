@@ -41,8 +41,10 @@ const emit = defineEmits(["close-modal"]);
 
 async function submit() {
   state.loading = true;
-  await commonStore.deleteCardType(props.cardType.id);
+  const res = await commonStore.deleteCardType(props.cardType.id);
   state.loading = false;
-  emit("close-modal");
+  if (res) {
+    emit("close-modal");
+  }
 }
 </script>
