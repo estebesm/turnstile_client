@@ -24,7 +24,8 @@
         --color-side: 239, 241, 247;
         --color-btn: 255, 255, 255;
         --width-scrollbar: 5px;
-        --skeleton-gradient: -90deg, #f2f2f2 0%, #e6e6e6 50%, #f2f2f2 100%
+        --skeleton-gradient: -90deg, #f2f2f2 0%, #e6e6e6 50%, #f2f2f2 100%;
+        --doc-height: 100%;
     }
 
     :root[data-mode="dark"] {
@@ -39,12 +40,17 @@
     }
 }
 
-body {
+html{
+  height: 100%;
+}
+#app {
     background-color: rgb(var(--color-main));
     color: rgb(var(--color-secondary));
     font-weight: 500;
     /* padding-bottom: 50px; */
-    overflow-y: scroll;
+    overflow-y: auto;
+    //min-height: 100vh;
+    height: var(--doc-height);
 }
 
 input,

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="min-h-screen">
+    <div class="">
       <slot />
     </div>
     <FooterNavbar />

@@ -3,7 +3,7 @@
     <div class="container py-6 lg:py-8">
       <h2 class="text-xl mb-4">Абонементы</h2>
       <Button
-        class="py-1.5 px-4 mb-4 rounded bg-primary"
+        class="py-2 px-4 mb-4 rounded bg-primary"
         @click="state.createModalActive = true"
       >
         <span class="text-white">Создать абонемент</span>
