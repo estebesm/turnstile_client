@@ -25,7 +25,6 @@
 import { watch } from "vue";
 import { isMobile, rootElement } from "@/helpers/window";
 defineEmits(["close-modal"]);
-console.log(rootElement);
 
 const props = defineProps({
   modalActive: {
@@ -37,10 +36,9 @@ watch(
   () => props.modalActive,
   (oldValue) => {
     rootElement.style.overflowY = oldValue ? "hidden" : "scroll";
-    if (!isMobile())
-      rootElement.style.paddingRight = oldValue
-        ? "var(--width-scrollbar)"
-        : "0px";
+    rootElement.style.paddingRight = oldValue
+      ? "var(--width-scrollbar)"
+      : "0px";
   }
 );
 </script>
