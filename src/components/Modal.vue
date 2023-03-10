@@ -2,7 +2,7 @@
   <Teleport to="#app">
     <Transition name="modal-outer">
       <div
-        v-show="modalActive"
+        v-if="modalActive"
         class="fixed w-screen bg-black/70 h-[var(--doc-height)] top-0 left-0 z-10 overflow-y-auto"
         :class="{ 'overflow-y-contain': modalActive }"
         @click="$emit('close-modal')"
@@ -22,8 +22,6 @@
 </template>
 
 <script setup>
-import { watch } from "vue";
-import { rootElement } from "@/helpers/window";
 defineEmits(["close-modal"]);
 
 const props = defineProps({
@@ -32,15 +30,15 @@ const props = defineProps({
     default: false,
   },
 });
-watch(
-  () => props.modalActive,
-  (oldValue) => {
-    rootElement.style.overflowY = oldValue ? "hidden" : "scroll";
-    rootElement.style.paddingRight = oldValue
-      ? "var(--width-scrollbar)"
-      : "0px";
-  }
-);
+// watch(
+//   () => props.modalActive,
+//   (oldValue) => {
+//     rootElement.style.overflowY = oldValue ? "hidden" : "scroll";
+//     rootElement.style.paddingRight = oldValue
+//       ? "var(--width-scrollbar)"
+//       : "0px";
+//   }
+// );
 </script>
 
 <style scoped>
