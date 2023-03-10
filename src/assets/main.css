@@ -42,10 +42,12 @@
 
 html{
   height: 100%;
+  overflow: hidden;
 }
 body{
   color: rgb(var(--color-secondary));
   font-weight: 500;
+  overflow-y: hidden;
 }
 #app {
     position: relative;

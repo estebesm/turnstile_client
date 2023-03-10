@@ -1,9 +1,9 @@
 <template>
-  <Teleport to="body">
+  <Teleport to="#app">
     <Transition name="modal-outer">
       <div
         v-show="modalActive"
-        class="fixed w-screen bg-black/70 h-screen top-0 left-0 z-10 overflow-y-auto"
+        class="fixed w-screen bg-black/70 h-[var(--doc-height)] top-0 left-0 z-10 overflow-y-auto"
         :class="{ 'overflow-y-contain': modalActive }"
         @click="$emit('close-modal')"
       >
@@ -23,8 +23,10 @@
 
 <script setup>
 import { watch } from "vue";
-import { isMobile } from "@/helpers/window";
+import { isMobile, rootElement } from "@/helpers/window";
 defineEmits(["close-modal"]);
+console.log(rootElement);
+
 const props = defineProps({
   modalActive: {
     type: Boolean,
@@ -34,9 +36,9 @@ const props = defineProps({
 watch(
   () => props.modalActive,
   (oldValue) => {
-    document.body.style.overflowY = oldValue ? "hidden" : "scroll";
+    rootElement.style.overflowY = oldValue ? "hidden" : "scroll";
     if (!isMobile())
-      document.body.style.paddingRight = oldValue
+      rootElement.style.paddingRight = oldValue
         ? "var(--width-scrollbar)"
         : "0px";
   }
