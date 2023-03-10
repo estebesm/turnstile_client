@@ -17,3 +17,5 @@ export function isMobile() {
 export function scrollToTop() {
   document.getElementById("app").scrollTo(0, 0);
 }
+
+export const rootElement = document.getElementById("app");
