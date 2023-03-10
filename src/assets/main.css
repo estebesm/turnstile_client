@@ -43,14 +43,16 @@
 html{
   height: 100%;
 }
+body{
+  color: rgb(var(--color-secondary));
+  font-weight: 500;
+}
 #app {
+    position: relative;
     background-color: rgb(var(--color-main));
-    color: rgb(var(--color-secondary));
-    font-weight: 500;
-    /* padding-bottom: 50px; */
     overflow-y: auto;
-    //min-height: 100vh;
     height: var(--doc-height);
+    //height: 200px;
 }
 
 input,
@@ -82,6 +84,11 @@ select {
     background: #90a4ae;
     border-radius: var(--width-scrollbar);
   }
+
+#app ::-webkit-scrollbar{
+  position: relative;
+  z-index: 1000000000000;
+}
 
 
 input::-webkit-outer-spin-button,
