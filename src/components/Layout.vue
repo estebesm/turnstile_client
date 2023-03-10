@@ -1,12 +1,10 @@
 <template>
   <div>
     <Header />
-    <div class="">
-      <slot />
-    </div>
-    <FooterNavbar />
-    <Footer />
+    <slot />
   </div>
+  <FooterNavbar />
+  <Footer />
 </template>
 
 <script setup>
