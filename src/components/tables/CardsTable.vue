@@ -55,7 +55,18 @@ const props = defineProps({
 </script>
 
 <style scoped>
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px rgb(var(--color-side));
+  border-radius: 3px;
+}
+
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(var(--color-primary));
+  background: #90a4ae;
+  border-radius: 3px;
 }
 </style>
