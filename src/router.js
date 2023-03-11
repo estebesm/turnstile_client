@@ -23,7 +23,7 @@ const router = createRouter({
       component: () => import("@/pages/Cards.vue"),
     },
     {
-      path: "/Cards/:id",
+      path: "/cards/:id",
       name: "cardProfile",
       component: () => import("@/pages/CardProfile.vue"),
     },
