@@ -23,7 +23,7 @@ const router = createRouter({
       component: () => import("@/pages/Cards.vue"),
     },
     {
-      path: "/Cards/:id",
+      path: "/cards/:id",
       name: "cardProfile",
       component: () => import("@/pages/CardProfile.vue"),
     },
@@ -41,6 +41,11 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: () => import("@/pages/Login.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "notfound",
+      component: () => import("@/pages/NotFound.vue"),
     },
     // {
     //   path: "/stream/:id?",
