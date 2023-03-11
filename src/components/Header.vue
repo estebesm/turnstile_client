@@ -2,8 +2,7 @@
   <header
     class="shadow-md bg-main"
     :class="{
-      'sticky top-0 z-10 border-b dark:border-gray-600 shadow-[0px_-1px_3px_rgba(82,82,91,0.3)]':
-        isMobile(),
+      'sticky top-0 z-10 border-b dark:border-gray-600 shadow-[0px_-1px_3px_rgba(82,82,91,0.3)]': false,
     }"
   >
     <div class="container py-1.5 flex justify-between items-center">

@@ -13,7 +13,8 @@
             <svg
               class="h-7 w-7 fill-secondary"
               :class="{
-                'fill-[rgb(var(--color-primary))]': route.name === 'dashboard',
+                'fill-[rgb(var(--color-primary))]':
+                  route.name === 'dashboard' || route.name === 'notfound',
               }"
               viewBox="0 0 28 28"
               fill="none"
@@ -40,7 +41,10 @@
           >
             <svg
               class="w-7 h-7 stroke-secondary"
-              :class="{ 'stroke-primary': route.name === 'cards' }"
+              :class="{
+                'stroke-primary':
+                  route.name === 'cards' || route.name === 'cardProfile',
+              }"
               viewBox="0 0 24 24"
               fill="none"
               stroke-width="2"
