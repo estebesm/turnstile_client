@@ -1,5 +1,5 @@
 <template>
-  <button class="ripple" @click="handleClick">
+  <button class="ripple" type="button" @click="handleClick">
     <slot />
     {{ variant }}
   </button>

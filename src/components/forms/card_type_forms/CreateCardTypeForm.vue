@@ -3,7 +3,7 @@
     v-if="state.using_type.name === using_types[0].name"
     class="grid grid-cols-1 gap-y-3 bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px]"
   >
-    <h3 class="text-xl mb-4">Создать абонемент</h3>
+    <h3 class="text-xl mb-4">Создать вид карты</h3>
     <Select
       v-model:value="state.using_type"
       :options="using_types"
@@ -13,7 +13,7 @@
     />
     <Textfield
       v-model:value="state.name"
-      title="Название абонемента"
+      title="Название карты"
       placeholder="Взрослый с тренером"
       class="w-full"
     />
@@ -86,7 +86,7 @@
     />
     <Textfield
       v-model:value="state.owner_name"
-      title="Владелец карты"
+      title="Название карты"
       placeholder="Иван Иванов"
       class="w-full"
     />
