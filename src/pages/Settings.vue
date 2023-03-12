@@ -49,12 +49,9 @@
           />
         </Modal>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
-          <TrainerTicket
-            v-for="card_type in card_types"
-            :key="card_type.id"
-            :card-type="card_type"
-            class="w-full md:w-auto"
-          />
+          <TrainerTicket :key="11" class="w-full md:w-auto" />
+          <TrainerTicket :key="12" class="w-full md:w-auto" />
+          <TrainerTicket :key="13" class="w-full md:w-auto" />
         </div>
       </div>
       <div>
@@ -75,12 +72,12 @@
           />
         </Modal>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
-          <ServiceCard
-            v-for="card_type in card_types"
-            :key="card_type.id"
-            :card-type="card_type"
-            class="w-full md:w-auto"
-          />
+          <ServiceCard :key="1" class="w-full md:w-auto" />
+          <ServiceCard :key="2" class="w-full md:w-auto" />
+          <ServiceCard :key="3" class="w-full md:w-auto" />
+          <ServiceCard :key="4" class="w-full md:w-auto" />
+          <ServiceCard :key="5" class="w-full md:w-auto" />
+          <ServiceCard :key="6" class="w-full md:w-auto" />
         </div>
       </div>
     </div>
