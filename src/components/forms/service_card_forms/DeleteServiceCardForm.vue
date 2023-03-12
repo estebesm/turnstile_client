@@ -2,7 +2,7 @@
   <form
     class="grid grid-cols-1 gap-y-3 bg-side py-5 px-4 md:px-8 rounded-lg w-[calc(100vw-32px)] max-w-[400px]"
   >
-    <h3 class="mb-4">Вы действительно хотите удалить тренера?</h3>
+    <h3 class="mb-4">Вы действительно хотите удалить карту?</h3>
     <div class="flex justify-end gap-x-4 mt-2">
       <Button type="button" @click="$emit('close-modal')">Отмена</Button>
       <Button
@@ -30,9 +30,6 @@ const emit = defineEmits(["close-modal"]);
 
 async function submit() {
   state.loading = true;
-  state.loading = false;
-  if (true) {
-    emit("close-modal");
-  }
+  emit("close-modal");
 }
 </script>

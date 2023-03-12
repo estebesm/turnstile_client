@@ -23,9 +23,9 @@
 <script setup>
 import Button from "@/ui/Button.vue";
 import { reactive, defineEmits } from "vue";
-import { useCommonStore } from "@/stores/common";
+import { useCardTypesStore } from "@/stores/cardTypes";
 
-const commonStore = useCommonStore();
+const cardTypesStore = useCardTypesStore();
 
 const state = reactive({
   loading: false,
@@ -41,7 +41,7 @@ const emit = defineEmits(["close-modal"]);
 
 async function submit() {
   state.loading = true;
-  const res = await commonStore.deleteCardType(props.cardType.id);
+  const res = await cardTypesStore.deleteCardType(props.cardType.id);
   state.loading = false;
   if (res) {
     emit("close-modal");

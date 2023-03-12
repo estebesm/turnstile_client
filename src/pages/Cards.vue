@@ -19,7 +19,7 @@
             :modal-active="state.createCardModalActive"
             @close-modal="state.createCardModalActive = false"
           >
-            <AddCardForm
+            <CreateCardForm
               :value="state.createCardModalActive"
               @close-modal="state.createCardModalActive = false"
             />
@@ -49,7 +49,7 @@ import DatePicker from "@/components/DatePicker.vue";
 import CardsTable from "@/components/tables/CardsTable.vue";
 import Button from "@/ui/Button.vue";
 import Modal from "@/components/Modal.vue";
-import AddCardForm from "@/components/forms/AddCardForm.vue";
+import CreateCardForm from "@/components/forms/card_forms/CreateCardForm.vue";
 import Layout from "@/components/Layout.vue";
 import SearchTextfield from "@/components/SearchTextfield.vue";
 useHead({

@@ -6,10 +6,10 @@
 
 <script setup>
 import { onMounted } from "vue";
-import { useCommonStore } from "@/stores/common";
+import { useCardTypesStore } from "@/stores/cardTypes";
 import FooterNavbar from "@/components/FooterNavbar.vue";
 
-const commonStore = useCommonStore();
+const cardTypesStore = useCardTypesStore();
 
 onMounted(() => {
   const documentHeight = () => {
@@ -18,7 +18,7 @@ onMounted(() => {
   };
   window.addEventListener("resize", documentHeight);
   documentHeight();
-  commonStore.getCardTypes();
+  cardTypesStore.getCardTypes();
   if (window.localStorage.getItem("theme") === "dark") {
     document.documentElement.setAttribute("data-mode", "dark");
   }

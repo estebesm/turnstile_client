@@ -9,7 +9,7 @@
     <Select
       v-model:value="state.card_type"
       :value="state.card_type"
-      :options="commonStore.card_types"
+      :options="cardTypesStore.card_types"
       title="Тип абонемента"
       class="w-full"
     />
@@ -21,17 +21,17 @@
 <script setup>
 import { reactive, watch } from "vue";
 import { useRoute } from "vue-router";
-import { useCommonStore } from "@/stores/common";
+import { useCardTypesStore } from "@/stores/cardTypes";
 import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
 
-const commonStore = useCommonStore();
+const cardTypesStore = useCardTypesStore();
 const route = useRoute();
 const state = reactive({
-  card_type: commonStore.card_types[0],
+  card_type: cardTypesStore.card_types[0],
 });
 
-watch(commonStore, () => {
-  state.card_type = commonStore.card_types[0];
+watch(cardTypesStore, () => {
+  state.card_type = cardTypesStore.card_types[0];
 });
 </script>

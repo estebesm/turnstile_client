@@ -49,9 +49,9 @@
 import Button from "@/ui/Button.vue";
 import Textfield from "@/ui/Textfield.vue";
 import { reactive, defineEmits, toRaw, onMounted } from "vue";
-import { useCommonStore } from "@/stores/common";
+import { useCardTypesStore } from "@/stores/cardTypes";
 
-const commonStore = useCommonStore();
+const cardTypesStore = useCardTypesStore();
 
 const state = reactive({
   loading: false,
@@ -73,7 +73,7 @@ const emit = defineEmits(["close-modal"]);
 async function submit() {
   const { id, name, price, period, visits_count } = toRaw(state);
   state.loading = true;
-  const res = await commonStore.updateCardType({
+  const res = await cardTypesStore.updateCardType({
     id,
     name,
     price,
