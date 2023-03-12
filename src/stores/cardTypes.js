@@ -4,14 +4,15 @@ import { notify } from "@kyvg/vue3-notification";
 
 const baseUrl = "https://baha996.pythonanywhere.com/api";
 
-export const useCommonStore = defineStore({
-  id: "common",
+export const useCardTypesStore = defineStore({
+  id: "cardTypes",
   state: () => ({
     loading: false,
     card_types: [],
   }),
   actions: {
     async getCardTypes() {
+      this.loading = true;
       return fetchWrapper
         .get(`${baseUrl}/card-types/`)
         .then((res) => {
@@ -24,6 +25,9 @@ export const useCommonStore = defineStore({
             text: error,
             type: "error",
           });
+        })
+        .finally(() => {
+          this.loading = false;
         });
     },
     async updateCardType(card_type) {

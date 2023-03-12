@@ -18,7 +18,11 @@
             @close-modal="state.createModalActive = false"
           />
         </Modal>
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
+        <Skeleton v-if="card_types_loading" class="w-full h-96 rounded" />
+        <div
+          v-else
+          class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3"
+        >
           <CardTypeTicket
             v-for="card_type in card_types"
             :key="card_type.id"
@@ -85,7 +89,7 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
-import { useCommonStore } from "@/stores/common";
+import { useCardTypesStore } from "@/stores/cardTypes";
 import Layout from "@/components/Layout.vue";
 import CreateCardTypeForm from "@/components/forms/card_type_forms/CreateCardTypeForm.vue";
 import CardTypeTicket from "@/components/CardTypeTicket.vue";
@@ -96,9 +100,10 @@ import TrainerTicket from "@/components/TrainerTicket.vue";
 import ServiceCard from "@/components/ServiceCard.vue";
 import CreateServiceCardForm from "@/components/forms/service_card_forms/CreateServiceCardForm.vue";
 import CreateTrainerForm from "@/components/forms/trainer_forms/CreateTrainerForm.vue";
+import Skeleton from "@/ui/Skeleton.vue";
 
-const commonStore = useCommonStore();
-const { card_types } = storeToRefs(commonStore);
+const cardTypesStore = useCardTypesStore();
+const { card_types, loading: card_types_loading } = storeToRefs(cardTypesStore);
 const state = reactive({
   createModalActive: false,
   createServiceCardModalActive: false,
