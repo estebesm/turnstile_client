@@ -12,7 +12,7 @@
     />
     <Select
       v-model:value="state.card_type"
-      :options="commonStore.card_types"
+      :options="cardTypesStore.card_types"
       :value="state.card_type"
       title="Тип абонемента"
       class="w-full"
@@ -65,16 +65,16 @@ import Textfield from "@/ui/Textfield.vue";
 import Select from "@/ui/Select.vue";
 import { reactive, toRaw, defineEmits } from "vue";
 import { useCardsStore } from "@/stores/cards.js";
-import { useCommonStore } from "@/stores/common";
+import { useCardTypesStore } from "@/stores/cardTypes";
 
 const emit = defineEmits(["close-modal"]);
 
 const store = useCardsStore();
-const commonStore = useCommonStore();
+const cardTypesStore = useCardTypesStore();
 
 const state = reactive({
   loading: false,
-  card_type: commonStore.card_types[0],
+  card_type: cardTypesStore.card_types[0],
   employees: [],
   employee: { name: "Тренер" },
   first_name: "",
