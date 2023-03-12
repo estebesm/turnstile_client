@@ -5,38 +5,8 @@
     <div class="flex justify-between items-start gap-x-4">
       <h3 class="font-[600] text-lg">{{ props.cardType.name }}</h3>
       <div class="flex gap-x-1">
-        <Button
-          class="w-8 h-8 flex items-center justify-center rounded-full"
-          @click="state.editModalActive = true"
-        >
-          <svg
-            viewBox="0 0 48 48"
-            class="w-5 h-5 fill-secondary"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 34.5v7.5h7.5l22.13-22.13-7.5-7.5-22.13 22.13zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z"
-            />
-            <path d="M0 0h48v48h-48z" fill="none" />
-          </svg>
-        </Button>
-        <Button
-          class="w-8 h-8 flex items-center justify-center rounded-full"
-          @click="state.deleteModalActive = true"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 fill-error"
-          >
-            <g>
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"
-              />
-            </g>
-          </svg>
-        </Button>
+        <EditButton @click="state.editModalActive = true" />
+        <DeleteButton @click="state.deleteModalActive = true" />
       </div>
     </div>
     <div class="flex gap-2 flex-wrap mt-4">
@@ -93,13 +63,14 @@
 </template>
 
 <script setup>
-import { toRaw, reactive } from "vue";
+import { reactive } from "vue";
 import { declOfNum } from "@/helpers/words";
 import Tag from "@/ui/Tag.vue";
-import Button from "@/ui/Button.vue";
+import EditButton from "@/ui/EditButton.vue";
+import DeleteButton from "@/ui/DeleteButton.vue";
 import Modal from "@/components/Modal.vue";
-import EditCardTypeForm from "@/components/forms/EditCardTypeForm.vue";
-import DeleteCardTypeForm from "@/components/forms/DeleteCardTypeForm.vue";
+import EditCardTypeForm from "@/components/forms/card_type_forms/EditCardTypeForm.vue";
+import DeleteCardTypeForm from "@/components/forms/card_type_forms/DeleteCardTypeForm.vue";
 const props = defineProps({
   cardType: {
     type: Object,

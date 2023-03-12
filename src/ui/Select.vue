@@ -5,7 +5,7 @@
         {{ props.title }}
       </div>
       <Button
-        class="flex relative z-0 justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-side"
+        class="flex gap-x-2 relative z-0 justify-between items-center py-2 px-2 outline-offset-0 rounded-lg bg-main outline-none border border-secondary dark:border-side"
         type="button"
         v-bind="$attrs"
         :disabled="props.options.length < 2"
@@ -13,7 +13,7 @@
         @blur="isOptionsExpanded = false"
       >
         <span
-          class="font-[400]"
+          class="font-[400] text-start text-ellipsis overflow-hidden whitespace-nowrap"
           :class="{ 'text-main': props.options.length === 0 }"
           >{{
             props.options.length === 0 || props.value === undefined

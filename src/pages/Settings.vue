@@ -1,29 +1,83 @@
 <template>
   <Layout>
-    <div class="container py-6 lg:py-8">
-      <h2 class="text-xl mb-4">Абонементы</h2>
-      <Button
-        class="py-2 px-4 mb-4 rounded bg-primary"
-        @click="state.createModalActive = true"
-      >
-        <span class="text-white">Создать абонемент</span>
-      </Button>
-      <Modal
-        :modal-active="state.createModalActive"
-        @close-modal="state.createModalActive = false"
-      >
-        <CreateCardTypeForm
-          :value="state.createModalActive"
+    <div class="container py-6 lg:py-8 flex flex-col gap-y-8">
+      <div>
+        <h2 class="text-xl mb-4">Виды карт</h2>
+        <Button
+          class="py-2 px-4 mb-4 rounded bg-primary"
+          @click="state.createModalActive = true"
+        >
+          <span class="text-white">Создать вид карты</span>
+        </Button>
+        <Modal
+          :modal-active="state.createModalActive"
           @close-modal="state.createModalActive = false"
-        />
-      </Modal>
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
-        <CardTypeTicket
-          v-for="card_type in card_types"
-          :key="card_type.id"
-          :card-type="card_type"
-          class="w-full md:w-auto"
-        />
+        >
+          <CreateCardTypeForm
+            :value="state.createModalActive"
+            @close-modal="state.createModalActive = false"
+          />
+        </Modal>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
+          <CardTypeTicket
+            v-for="card_type in card_types"
+            :key="card_type.id"
+            :card-type="card_type"
+            class="w-full md:w-auto"
+          />
+        </div>
+      </div>
+      <div>
+        <h2 class="text-xl mb-4">Тренеры</h2>
+        <Button
+          class="py-2 px-4 mb-4 rounded bg-primary"
+          @click="state.createTrainerModalActive = true"
+        >
+          <span class="text-white">Добавить тренера</span>
+        </Button>
+        <Modal
+          :modal-active="state.createTrainerModalActive"
+          @close-modal="state.createTrainerModalActive = false"
+        >
+          <CreateTrainerForm
+            :value="state.createTrainerModalActive"
+            @close-modal="state.createTrainerModalActive = false"
+          />
+        </Modal>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
+          <TrainerTicket
+            v-for="card_type in card_types"
+            :key="card_type.id"
+            :card-type="card_type"
+            class="w-full md:w-auto"
+          />
+        </div>
+      </div>
+      <div>
+        <h2 class="text-xl mb-4">Служебные карты</h2>
+        <Button
+          class="py-2 px-4 mb-4 rounded bg-primary"
+          @click="state.createServiceCardModalActive = true"
+        >
+          <span class="text-white">Добавить служебную карту</span>
+        </Button>
+        <Modal
+          :modal-active="state.createServiceCardModalActive"
+          @close-modal="state.createServiceCardModalActive = false"
+        >
+          <CreateServiceCardForm
+            :value="state.createServiceCardModalActive"
+            @close-modal="state.createServiceCardModalActive = false"
+          />
+        </Modal>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
+          <ServiceCard
+            v-for="card_type in card_types"
+            :key="card_type.id"
+            :card-type="card_type"
+            class="w-full md:w-auto"
+          />
+        </div>
       </div>
     </div>
   </Layout>
@@ -33,15 +87,21 @@
 import { storeToRefs } from "pinia";
 import { useCommonStore } from "@/stores/common";
 import Layout from "@/components/Layout.vue";
-import CreateCardTypeForm from "@/components/forms/CreateCardTypeForm.vue";
+import CreateCardTypeForm from "@/components/forms/card_type_forms/CreateCardTypeForm.vue";
 import CardTypeTicket from "@/components/CardTypeTicket.vue";
 import Modal from "@/components/Modal.vue";
 import Button from "@/ui/Button.vue";
 import { reactive } from "vue";
+import TrainerTicket from "@/components/TrainerTicket.vue";
+import ServiceCard from "@/components/ServiceCard.vue";
+import CreateServiceCardForm from "@/components/forms/service_card_forms/CreateServiceCardForm.vue";
+import CreateTrainerForm from "@/components/forms/trainer_forms/CreateTrainerForm.vue";
 
 const commonStore = useCommonStore();
 const { card_types } = storeToRefs(commonStore);
 const state = reactive({
   createModalActive: false,
+  createServiceCardModalActive: false,
+  createTrainerModalActive: false,
 });
 </script>
